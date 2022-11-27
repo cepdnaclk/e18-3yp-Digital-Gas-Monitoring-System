@@ -71,8 +71,8 @@ What was achieved, future developments, commercialization plans
 
 ## Links
 
-- [Project Repository]([https://github.com/cepdnaclk/](https://github.com/cepdnaclk/e18-3yp-Digital-Gas-Monitoring-System){{ page.repository-name }}){:target="_blank"}
-- [Project Page]([https://cepdnaclk.github.io/](https://cepdnaclk.github.io/e18-3yp-Digital-Gas-Monitoring-System/){{ page.repository-name}}){:target="_blank"}
+- [Project Repository]((https://github.com/cepdnaclk/e18-3yp-Digital-Gas-Monitoring-System){{ page.repository-name }}){:target="_blank"}
+- [Project Page]((https://cepdnaclk.github.io/e18-3yp-Digital-Gas-Monitoring-System/){{ page.repository-name}}){:target="_blank"}
 - [Department of Computer Engineering](http://www.ce.pdn.ac.lk/)
 - [University of Peradeniya](https://eng.pdn.ac.lk/)
 
