@@ -9,14 +9,15 @@ title: Project Template
 
 [comment]: # "This is the standard layout for the project, but you can clean this and use your own template"
 
-# Project Title
+# Digital Gas Monitoring System
+
 
 ---
 
 ## Team
--  eNumber, Name, [email](mailto:name@email.com)
--  eNumber, Name, [email](mailto:name@email.com)
--  eNumber, Name, [email](mailto:name@email.com)
+-  E/18/245, Nishani K., [email](mailto:e18245@eng.pdn.ac.lk)
+-  E/18/340, Subramanieam V., [email](mailto:e18340@eng.pdn.ac.lk)
+-  E/18/373, Vilakshan V., [email](mailto:e18373@eng.pdn.ac.lk)
 
 <!-- Image (photo/drawing of the final hardware) should be here -->
 
@@ -35,7 +36,13 @@ title: Project Template
 
 ## Introduction
 
-Description of the real world problem and solution, impact
+This is a system developed to overcome some problems identified such as ,
+* Difficulty in tracking the available quantity of gas
+* Increase in gas leakage explosion
+* No proper guess when explosion is about to happen
+* Less awareness of the daily usage of  gas
+* Consumption of gas over the limit
+* Struggle in easy refilling
 
 
 ## Solution Architecture
