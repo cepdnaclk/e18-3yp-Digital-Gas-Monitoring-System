@@ -47,21 +47,44 @@ LPG is a fuel gas used in cooking appliances, and heating appliances. There wer
 ### Solution Architecture
 ![image](https://user-images.githubusercontent.com/95094083/204203194-5b5e47a1-138a-475a-9889-5314d6789042.png)
 
-## Hardware and Software Designs
 
-Detailed designs with many sub-sections
+### Data and Control Flow
+![image](https://user-images.githubusercontent.com/95094083/204203325-5ba9f899-ed1a-4dba-b335-d2d99da205d1.png)
 
-## Testing
+### 3D model of Gas level monitoring system
+![image](https://user-images.githubusercontent.com/95094083/204203522-b9896378-0acf-4e6f-b42d-f61854d931e3.png)
 
-Testing done on hardware and software, detailed + summarized results
+### Sensors and actuators needed
+* Gas sensor-MQ6
+* Weight sensor
+* ESP32-Wroom
+* LCD Display 
+* Piezo buzzer 
 
-## Detailed budget
+### Circuit Diagram
+To achieve the overall functionality the circuit diagram should be designed as given below
+![image](https://user-images.githubusercontent.com/95094083/204203765-5c2e0abe-bd20-43ad-9d6a-372a204420b7.png)
 
-All items and costs
+### Front-end technologies
+Flutter to build Android Apps and Shortcuts to build iPhone Apps
 
-| Item          | Quantity  | Unit Cost  | Total  |
-| ------------- |:---------:|:----------:|-------:|
-| Sample item   | 5         | 10 LKR     | 50 LKR |
+### Back-end technologies
+Cloud Functions for Firebase
+
+### Product development roadmap of week 01 - week 04
+![image](https://user-images.githubusercontent.com/95094083/204204835-e30f008e-5f93-4dc1-bc82-8686bd5a76e6.png)
+
+### Product development roadmap of week 05 - week 08
+![image](https://user-images.githubusercontent.com/95094083/204204779-d91b8ca1-e968-4fe2-964e-e8afd8922ec1.png)
+
+### Product development roadmap of week 09 - week 12
+![image](https://user-images.githubusercontent.com/95094083/204204674-72af1380-a943-40f9-9f83-43df88070ec2.png)
+
+### Product development roadmap of week 13 - week 16
+![image](https://user-images.githubusercontent.com/95094083/204204735-6fa298ad-5b67-4834-aa77-d6eaccf0da00.png)
+
+### Bill of materials
+![image](https://user-images.githubusercontent.com/95094083/204204926-d0d31758-2668-42b6-baa2-db3f1b96579a.png)
 
 ## Conclusion
 
