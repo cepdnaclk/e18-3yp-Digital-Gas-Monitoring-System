@@ -28,12 +28,15 @@ title: Project Template
 #### Table of Contents
 1. [Introduction](#introduction)
 2. [Solution Architecture](#solution-architecture )
-3. [Data and Control Flow](#data-and-conrol-flow)
-4. [Hardware & Software Designs](#hardware-and-software-designs)
-5. [Testing](#testing)
-6. [Detailed budget](#detailed-budget)
-7. [Conclusion](#conclusion)
-8. [Links](#links)
+3. [Data and Control Flow](#data-and-control-flow)
+4. [3D model of Gas level monitoring system](#3d-model-of-gas-level-monitoring-system)
+5. [Sensors and actuators needed](#sensors-and-actuators-needed)
+6. [Circuit Diagram](#circuit-diagram)
+7. [Technologies](#technologies)
+8. [Product development roadmap](#product-development-roadmap)
+9. [Bill of materials](#bill-of-materials)
+10. [Conclusion](#conclusion)
+11. [Links](#links)
 
 ## Introduction
 
@@ -66,11 +69,15 @@ LPG is a fuel gas used in cooking appliances, and heating appliances. There wer
 To achieve the overall functionality the circuit diagram should be designed as given below
 ![image](https://user-images.githubusercontent.com/95094083/204203765-5c2e0abe-bd20-43ad-9d6a-372a204420b7.png)
 
+## Technologies
+
 ### Front-end technologies
 Flutter to build Android Apps and Shortcuts to build iPhone Apps
 
 ### Back-end technologies
 Cloud Functions for Firebase
+
+## Product development roadmap
 
 ### Product development roadmap of week 01 - week 04
 ![image](https://user-images.githubusercontent.com/95094083/204204835-e30f008e-5f93-4dc1-bc82-8686bd5a76e6.png)
@@ -89,7 +96,11 @@ Cloud Functions for Firebase
 
 ## Conclusion
 
-What was achieved, future developments, commercialization plans
+As a conclusion, the system we are creating guarantees that we will offer the capacity to,
+* Measure the quantity of the remaining gas
+* Give alert when a gas explosion is about to happen
+* Provide analytics of daily, weekly and monthly usage
+* Connect with the gas suppliers nearby by providing contacts
 
 ## Links
 
