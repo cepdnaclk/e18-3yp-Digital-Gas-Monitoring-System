@@ -28,11 +28,12 @@ title: Project Template
 #### Table of Contents
 1. [Introduction](#introduction)
 2. [Solution Architecture](#solution-architecture )
-3. [Hardware & Software Designs](#hardware-and-software-designs)
-4. [Testing](#testing)
-5. [Detailed budget](#detailed-budget)
-6. [Conclusion](#conclusion)
-7. [Links](#links)
+3. [Data and Control Flow](#data-and-conrol-flow)
+4. [Hardware & Software Designs](#hardware-and-software-designs)
+5. [Testing](#testing)
+6. [Detailed budget](#detailed-budget)
+7. [Conclusion](#conclusion)
+8. [Links](#links)
 
 ## Introduction
 
@@ -44,24 +45,24 @@ LPG is a fuel gas used in cooking appliances, and heating appliances. There wer
 * Struggle in easy refilling
 
 
-### Solution Architecture
+## Solution Architecture
 ![image](https://user-images.githubusercontent.com/95094083/204203194-5b5e47a1-138a-475a-9889-5314d6789042.png)
 
 
-### Data and Control Flow
+## Data and Control Flow
 ![image](https://user-images.githubusercontent.com/95094083/204203325-5ba9f899-ed1a-4dba-b335-d2d99da205d1.png)
 
-### 3D model of Gas level monitoring system
+## 3D model of Gas level monitoring system
 ![image](https://user-images.githubusercontent.com/95094083/204203522-b9896378-0acf-4e6f-b42d-f61854d931e3.png)
 
-### Sensors and actuators needed
+## Sensors and actuators needed
 * Gas sensor-MQ6
 * Weight sensor
 * ESP32-Wroom
 * LCD Display 
 * Piezo buzzer 
 
-### Circuit Diagram
+## Circuit Diagram
 To achieve the overall functionality the circuit diagram should be designed as given below
 ![image](https://user-images.githubusercontent.com/95094083/204203765-5c2e0abe-bd20-43ad-9d6a-372a204420b7.png)
 
