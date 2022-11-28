@@ -2,17 +2,53 @@ ___
 # DIGITAL GAS MONITORING SYSTEM
 ___
 
-This is a system which gives a solution for the below identified problems,
-* Difficulty in tracking the available quantity of gas
-* Increase in gas leakage explosion
-* No proper guess when explosion is about to happen
-* Less awareness of the daily usage of  gas
-* Consumption of gas over the limit
+LPG is a fuel gas used in cooking appliances, and heating appliances. There were many issues with gas consumption in the most recent time period. The issues found as a whole are listed below.
+* Available quantity of gas
+* Gas leakage explosion
+* Daily gas usage
+* Consumption over the limit
 * Struggle in easy refilling
 
 ### Solution Architecture
+![image](https://user-images.githubusercontent.com/95094083/204203194-5b5e47a1-138a-475a-9889-5314d6789042.png)
 
+### Data and Control Flow
+![image](https://user-images.githubusercontent.com/95094083/204203325-5ba9f899-ed1a-4dba-b335-d2d99da205d1.png)
 
+### 3D model of Gas level monitoring system
+![image](https://user-images.githubusercontent.com/95094083/204203522-b9896378-0acf-4e6f-b42d-f61854d931e3.png)
+
+### Sensors and actuators needed
+* Gas sensor-MQ6
+* Weight sensor
+* ESP32-Wroom
+* LCD Display 
+* Piezo buzzer 
+
+### Circuit Diagram
+To achieve the overall functionality the circuit diagram should be designed as given below
+![image](https://user-images.githubusercontent.com/95094083/204203765-5c2e0abe-bd20-43ad-9d6a-372a204420b7.png)
+
+### Front-end technologies
+Flutter to build Android Apps and Shortcuts to build iPhone Apps
+
+### Back-end technologies
+Cloud Functions for Firebase
+
+### Product development roadmap of week 01 - week 04
+![image](https://user-images.githubusercontent.com/95094083/204204835-e30f008e-5f93-4dc1-bc82-8686bd5a76e6.png)
+
+### Product development roadmap of week 05 - week 08
+![image](https://user-images.githubusercontent.com/95094083/204204779-d91b8ca1-e968-4fe2-964e-e8afd8922ec1.png)
+
+### Product development roadmap of week 09 - week 12
+![image](https://user-images.githubusercontent.com/95094083/204204674-72af1380-a943-40f9-9f83-43df88070ec2.png)
+
+### Product development roadmap of week 013 - week 16
+![image](https://user-images.githubusercontent.com/95094083/204204735-6fa298ad-5b67-4834-aa77-d6eaccf0da00.png)
+
+### Bill of materials
+![image](https://user-images.githubusercontent.com/95094083/204204926-d0d31758-2668-42b6-baa2-db3f1b96579a.png)
 
 ```
 {
@@ -36,20 +72,14 @@ This is a system which gives a solution for the below identified problems,
   ],
   "supervisors": [
     {
-      "name": "Dr. Supervisor 1",
-      "email": "email@eng.pdn.ac.lk"
+      "name": "Dr. Isuru Nawinne",
+      "email": "isurunawinne@eng.pdn.ac.lk"
     },
     {
-      "name": "Supervisor 2",
-      "email": "email@eng.pdn.ac.lk"
+      "name": "Dr. Mahanama Wickramasinghe",
+      "email": "mahanamaw@eng.pdn.ac.lk"
     }
   ],
-  "tags": ["Web", "Embedded Systems"]
+  "tags": ["Mobile", "Embedded Systems"]
 }
 ```
-
-Once you filled this _index.json_ file, please verify the syntax is correct. (You can use [this](https://jsonlint.com/) tool).
-
-### Page Theme
-
-A custom theme integrated with this GitHub Page, which is based on [github.com/cepdnaclk/eYY-project-theme](https://github.com/cepdnaclk/eYY-project-theme). If you like to remove this default theme, you can remove the file, _docs/\_config.yml_ and use HTML based website.
