@@ -44,9 +44,8 @@ LPG is a fuel gas used in cooking appliances, and heating appliances. There wer
 * Struggle in easy refilling
 
 
-## Solution Architecture
-
-High level diagram + description
+### Solution Architecture
+![image](https://user-images.githubusercontent.com/95094083/204203194-5b5e47a1-138a-475a-9889-5314d6789042.png)
 
 ## Hardware and Software Designs
 
