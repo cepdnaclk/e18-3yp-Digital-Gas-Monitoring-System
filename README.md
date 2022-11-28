@@ -48,7 +48,8 @@ Cloud Functions for Firebase
 ![image](https://user-images.githubusercontent.com/95094083/204204735-6fa298ad-5b67-4834-aa77-d6eaccf0da00.png)
 
 ### Bill of materials
-![image](https://user-images.githubusercontent.com/95094083/204204926-d0d31758-2668-42b6-baa2-db3f1b96579a.png)
+
+![bom](https://user-images.githubusercontent.com/73964224/204232440-44c6913c-02ec-44fc-919d-707c433c408d.PNG)
 
 ```
 {
