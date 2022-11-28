@@ -36,12 +36,11 @@ title: Project Template
 
 ## Introduction
 
-This is a system developed to overcome some problems identified such as ,
-* Difficulty in tracking the available quantity of gas
-* Increase in gas leakage explosion
-* No proper guess when explosion is about to happen
-* Less awareness of the daily usage of  gas
-* Consumption of gas over the limit
+LPG is a fuel gas used in cooking appliances, and heating appliances. There were many issues with gas consumption in the most recent time period. The issues found as a whole are listed below.
+* Available quantity of gas
+* Gas leakage explosion
+* Daily gas usage
+* Consumption over the limit
 * Struggle in easy refilling
 
 
