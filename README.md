@@ -44,7 +44,7 @@ Cloud Functions for Firebase
 ### Product development roadmap of week 09 - week 12
 ![image](https://user-images.githubusercontent.com/95094083/204204674-72af1380-a943-40f9-9f83-43df88070ec2.png)
 
-### Product development roadmap of week 013 - week 16
+### Product development roadmap of week 13 - week 16
 ![image](https://user-images.githubusercontent.com/95094083/204204735-6fa298ad-5b67-4834-aa77-d6eaccf0da00.png)
 
 ### Bill of materials
