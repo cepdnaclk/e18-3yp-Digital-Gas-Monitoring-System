@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>319873343936-1vb7a6r3chdq8126mn90o75nl0u2n4gr.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.319873343936-1vb7a6r3chdq8126mn90o75nl0u2n4gr</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>319873343936-apc2ba5n714qha1e0n4gtg20gdem1mpf.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBCOmtTYlIrBy6cK4GSTeO8T1TZ055Eujg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>319873343936</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.bluetoothapp</string>
+	<key>PROJECT_ID</key>
+	<string>digital-gas-monitoring-system</string>
+	<key>STORAGE_BUCKET</key>
+	<string>digital-gas-monitoring-system.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:319873343936:ios:f08a9f52f6251b22b46825</string>
+	<key>DATABASE_URL</key>
+	<string>https://digital-gas-monitoring-system-default-rtdb.asia-southeast1.firebasedatabase.app</string>
+</dict>
+</plist>
