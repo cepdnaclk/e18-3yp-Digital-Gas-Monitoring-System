@@ -1,3 +1,4 @@
+import 'package:bluetoothapp/app/data/services/firebase_service.dart';
 import 'package:bluetoothapp/app/modules/login/views/otp_view.dart';
 import 'package:bluetoothapp/app/routes/app_pages.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -5,11 +6,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 
+import '../../../data/models/user_model.dart';
+
 class LoginController extends GetxController {
   //TODO: Implement LoginController
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  var isLoggedIn = false.obs;
   
 
   final count = 0.obs;
@@ -27,6 +29,7 @@ class LoginController extends GetxController {
   void onClose() {
     super.onClose();
   }
+
 
   Future<void> verifyPhoneNumber() async{
     await FirebaseAuth.instance.verifyPhoneNumber(
@@ -49,8 +52,17 @@ class LoginController extends GetxController {
     var smsCode = await Get.to(OtpView());
     PhoneAuthCredential credential = PhoneAuthProvider.credential(verificationId: verificationId, smsCode: smsCode);
     // Sign the user in (or link) with the credential
-    _auth.signInWithCredential(credential).then((UserCredential result) {
-      Get.offAllNamed(Routes.HOME);
+    _auth.signInWithCredential(credential).then((UserCredential user)async {
+
+
+        UserModel.uid = user.user!.uid;          //set uid of UserModel
+
+        //ask username if the username is not exists in firestore
+        bool exists = await FirebaseServices.checkWhetherUserNameIsThere();            
+        if(!exists){
+          Get.defaultDialog();
+        }
+      
 
     }).catchError((e){
       print(e);
