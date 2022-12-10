@@ -11,6 +11,12 @@ static Future<bool> checkWhetherUserNameIsThere()async{
       return await FirebaseHelpers.checkIfDocExists("users", uid);    
   }
 
+static Future<void> addUser() async{
+      String uid = UserModel.uid!;
+      Map<String,dynamic> data = {"userName":"Vilakshan"};
+      await FirebaseHelpers.addOnFirestore("users",uid,data);
+}
+
   
   
 }

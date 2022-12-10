@@ -3,8 +3,12 @@ import 'package:bluetoothapp/app/modules/login/views/otp_view.dart';
 import 'package:bluetoothapp/app/routes/app_pages.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
+import 'package:getwidget/colors/gf_color.dart';
+import 'package:getwidget/components/button/gf_button.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 import '../../../data/models/user_model.dart';
 
@@ -12,7 +16,8 @@ class LoginController extends GetxController {
   //TODO: Implement LoginController
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  
+  final _formKey = GlobalKey<FormState>();
+
 
   final count = 0.obs;
   @override
@@ -56,11 +61,48 @@ class LoginController extends GetxController {
 
 
         UserModel.uid = user.user!.uid;          //set uid of UserModel
+        String userName ="";
 
         //ask username if the username is not exists in firestore
         bool exists = await FirebaseServices.checkWhetherUserNameIsThere();            
         if(!exists){
-          Get.defaultDialog();
+          Get.defaultDialog(
+            content: Form(
+              key: _formKey,
+              child: VStack(
+                [
+                    TextFormField(
+                      decoration: const InputDecoration(
+                          labelText: 'Enter your name',
+                        ),
+                        // use the validator to return an error string (or null) based on the input text
+                        validator: (text) {
+                          if (text == null || text.isEmpty) {
+                            return 'Can\'t be empty';
+                          }
+                          if (text.length < 8) {
+                            return 'Too short';
+                          }
+                          return null;
+                        },
+                        
+                       
+                  
+                    ),
+                    GFButton(onPressed: ()async{
+                      if(_formKey.currentState!.validate()){
+                        print("...................User Submission Initialized ...............");
+                        UserModel.userName = userName;
+                        await FirebaseServices.addUser();
+                        
+                      }
+                    
+            
+                    },text: "Sign Up",color: GFColors.PRIMARY,)
+                ]
+              ),
+            )
+          );
         }
       
 

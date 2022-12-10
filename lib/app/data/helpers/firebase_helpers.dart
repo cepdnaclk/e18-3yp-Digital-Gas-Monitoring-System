@@ -12,4 +12,16 @@ class FirebaseHelpers{
     throw e;
   }
 }
+
+  static Future<void> addOnFirestore (String colId , String docId ,Map<String,dynamic> data) async {
+    try {
+    var collectionRef = FirebaseFirestore.instance.collection(colId);
+    collectionRef.doc(docId).set(data)
+    .then((value) => print("Data Added Successfully"))
+    .catchError((error) => print("Failed to add user: $error"));
+  } catch (e) {
+    throw e;
+  }
+    
+  }
 }
