@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../controllers/home_controller.dart';
+import '../controllers/addGas_controller.dart';
 
-class HomeView extends GetView<HomeController> {
+class AddGasView extends GetView<AddGasController> {
   final controller = Get.find();
-  HomeView({Key? key}) : super(key: key);
+  AddGasView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
