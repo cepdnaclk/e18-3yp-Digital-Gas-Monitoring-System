@@ -18,60 +18,48 @@ class HomeView extends GetView<HomeController> {
       body: GridView.count(
         crossAxisCount: 2,
         children: [
-          GetBuilder<HomeController>(
-              builder: (controller) {
-                return FutureBuilder<double>(
-                  future: controller.gasLevel,
-                  builder: (context, snapshot) {
-                    return Container(
-                      width: 200.0,
-                      height: 200.0,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          shape: BoxShape.circle,
-                          border: Border.all(color: Colors.blue, width: 3.0),
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.black26,
-                                offset: Offset(5.0, 5.0),
-                                blurRadius: 10.0)
-                          ]),
-                      child: VStack(
-                        [
-                          (controller.gasLevel.toString()).text.size(60).light.make(),
-                          "Gas Level Indicator".text.make()
-                        ],
-                        crossAlignment: CrossAxisAlignment.center,
-                      ).centered(),
-                    );
-                  }
-                );
-              })
-          // PhysicalModel(
-          //   child: SizedBox(
-
-          //     height: 100,
-          //     width: 100,
-          //     child: Center(
-          //       child: VStack(
-          //         [
-
-          //           "24".text.size(80).light.makeCentered(),
-          //           "Gas Level".text.size(10).makeCentered()
-          //         ]
-          //       ),
-          //     ),
-          //   ),
-
-          //   shape: BoxShape.circle,
-          //   elevation: 5,
-
-          //   borderRadius: BorderRadius.circular(12.0),
-          //   color: Colors.white,
-          //   shadowColor: Colors.black,
-          // ),
+          itemGridView(controller.readGasLevel(),"Gas Level Indicator"),
+          itemGridView(controller.readLeakageLevel(),"Gas Leakage Indicator")
+         
         ],
       ),
     );
+  }
+
+  GetBuilder<HomeController> itemGridView(Future<String>? funcController,String featureTitle) {
+ 
+    return GetBuilder<HomeController>(builder: (_) {
+          return FutureBuilder<String>(
+              future: funcController,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return Container(
+                    width: 200.0,
+                    height: 200.0,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        shape: BoxShape.circle,
+                        border: Border.all(color:(featureTitle=="Gas Level Indicator"?_.color1:_.color2), width: 10.0),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black26,
+                              offset: Offset(5.0, 5.0),
+                              blurRadius: 10.0)
+                        ]),
+                    child: VStack(
+                      [
+                        (snapshot.data.toString()).text.size(60).light.make(),
+                        featureTitle.text.make()
+                      ],
+                      crossAlignment: CrossAxisAlignment.center,
+                    ).centered(),
+                  );
+                } else if (snapshot.hasError) {
+                  return Text("An error occurred: ${snapshot.error}");
+                } else {
+                  return CircularProgressIndicator();
+                }
+              });
+        });
   }
 }

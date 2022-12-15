@@ -107,7 +107,7 @@ class LoginController extends GetxController {
             ));
           } else {
             await FirebaseServices.addGas();
-            if(Gasses.gasList.isEmpty){
+            if(Gases.gasList.isEmpty){
               Get.offAllNamed(Routes.ADDGAS);
             }
           }

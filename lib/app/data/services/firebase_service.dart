@@ -38,12 +38,24 @@ class FirebaseServices {
   }
 
   static Future<void> readGasLevel() async{
-     FirebaseFirestore.instance
+     await FirebaseFirestore.instance
     .collection("gases")
     .doc(Gases.activeGas!.macAddress)
     .get()
-    .then((value) {  
-      Gases.activeGas!.gasLevel(value as double);
+    .then((value) {        
+      Gases.activeGas!.gasLevel = (value.data()!["gaslevel"]) as double;
+     
+    });
+  }
+
+  static Future<void> readLeakageLevel() async{
+     await FirebaseFirestore.instance
+    .collection("gases")
+    .doc(Gases.activeGas!.macAddress)
+    .get()
+    .then((value) {        
+      Gases.activeGas!.leakageLevel = (value.data()!["leakagelevel"]) as double;
+    
     });
   }
 
