@@ -1,3 +1,4 @@
+import 'package:bluetoothapp/app/data/models/gas_model.dart';
 import 'package:bluetoothapp/app/data/services/firebase_service.dart';
 import 'package:bluetoothapp/app/modules/login/views/otp_view.dart';
 import 'package:bluetoothapp/app/routes/app_pages.dart';
@@ -96,6 +97,7 @@ class LoginController extends GetxController {
                           "...................User Submission Initialized ...............");
                       UserModel.userName = userName;
                       await FirebaseServices.addUser();
+                      Get.offAllNamed(Routes.ADDGAS);
                     }
                   },
                   text: "Sign Up",
@@ -104,7 +106,10 @@ class LoginController extends GetxController {
               ]),
             ));
           } else {
-            Get.offAllNamed(Routes.HOME);
+            await FirebaseServices.addGas();
+            if(Gasses.gasList.isEmpty){
+              Get.offAllNamed(Routes.ADDGAS);
+            }
           }
         }).catchError((e) {
           print(e);

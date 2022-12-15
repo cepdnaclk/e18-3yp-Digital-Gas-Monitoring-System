@@ -1,3 +1,5 @@
+import 'package:bluetoothapp/app/modules/addGas/bindings/addGas_binding.dart';
+import 'package:bluetoothapp/app/modules/addGas/views/addGas_view.dart';
 import 'package:get/get.dart';
 
 import '../modules/home/bindings/home_binding.dart';
@@ -12,12 +14,12 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.SPLASH;
+  static const INITIAL = Routes.HOME;
 
   static final routes = [
     GetPage(
       name: _Paths.HOME,
-      page: () => const HomeView(),
+      page: () => HomeView(),
       binding: HomeBinding(),
     ),
     GetPage(
@@ -29,6 +31,11 @@ class AppPages {
       name: _Paths.LOGIN,
       page: () =>LoginView(),
       binding: LoginBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADDGAS,
+      page: () =>AddGasView(),
+      binding: AddGasBinding(),
     ),
   ];
 }

@@ -21,7 +21,10 @@ class FirebaseHelpers{
     .catchError((error) => print("Failed to add user: $error"));
   } catch (e) {
     throw e;
-  }
+  }}
+
+  
+  
     
-  }
+  
 }
