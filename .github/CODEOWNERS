@@ -1,13 +1,1 @@
-
-# This is a comment
-# Each line in this file consists of a file pattern followed by one or more owners
-# For example:
-#   *.c @octocat @bob
-#   docs/* @alice
-
-# The '*' character is a wildcard and matches any file or directory
-# The 'docs/*' pattern will match any file in the 'docs' directory, or any subdirectory of 'docs'
-
-# src/ @developers
-
 *@vilakshan2996
