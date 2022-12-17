@@ -21,18 +21,18 @@ WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP, "pool.ntp.org");
 
 /* 1. Define the WiFi credentials */
-#define WIFI_SSID "XXXXXXXXX"
-#define WIFI_PASSWORD "XXXXXXXXX"
+#define WIFI_SSID "Dialog 4G 313"
+#define WIFI_PASSWORD "7a8Da8c3"
 
 /* 2. Define the API Key */
-#define API_KEY "XXXXXXXXX"
+#define API_KEY "AIzaSyAZ4jx6lIlrbBP629e8VSQQ2tsAVgqn2c4"
 
 /* 3. Define the project ID */
-#define FIREBASE_PROJECT_ID "XXXXXXXX"
+#define FIREBASE_PROJECT_ID "esp32-firebase-demo-6041f"
 
 /* 4. Define the user Email and password that alreadey registerd or added in your project */
-#define USER_EMAIL "XXXXXX@gmail.com"
-#define USER_PASSWORD "XXXXXXXX"
+#define USER_EMAIL "k.nishani1999@gmail.com"
+#define USER_PASSWORD "firebase1234"
 
 //Define Firebase Data object
 FirebaseData fbdo;
@@ -219,4 +219,3 @@ void loop(){
     mVolt = 0.0;              /* Set the mVolt variable to 0 */
   }
 }
-
