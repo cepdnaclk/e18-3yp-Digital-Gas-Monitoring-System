@@ -12,6 +12,12 @@ LPG is a fuel gas used in cooking appliances, and heating appliances. There wer
 ### Solution Architecture
 ![image](https://user-images.githubusercontent.com/95094083/204203194-5b5e47a1-138a-475a-9889-5314d6789042.png)
 
+The above diagram shows the solution architection of Gas level indicator system. The gas level inside the gas cylinder is going to be calculated by measuring the weight of the gas cylinder as follows.
+
+**W<sub>gas</sub>=W<sub>EmptyCylinder</sub>+W<sub>liquid</sub>**
+
+<img src="https://latex.codecogs.com/png.image?\inline&space;\dpi{110}\bg{white}Current&space;Level(%)=\frac{(Wgas-WEmptyCylinder)}{(Gas&space;Weight&space;set&space;by&space;User)}" title="https://latex.codecogs.com/png.image?\inline \dpi{110}\bg{white}Current Level(%)=\frac{(Wgas-WEmptyCylinder)}{(Gas Weight set by User)}" />
+
 ### Data and Control Flow
 ![image](https://user-images.githubusercontent.com/95094083/204203325-5ba9f899-ed1a-4dba-b335-d2d99da205d1.png)
 
