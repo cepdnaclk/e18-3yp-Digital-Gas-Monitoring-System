@@ -24,6 +24,8 @@ The last modified gas level reading will be transfered to firestore only when th
 ### Data and Control Flow
 ![image](https://user-images.githubusercontent.com/95094083/204203325-5ba9f899-ed1a-4dba-b335-d2d99da205d1.png)
 
+Above Data and control flow diagram shows the solution implementation of gas leakage detection and precaution system. Here, LPG gas leakage will be identified using MQ6 sensor. When a gas leakage circumstance is detected via our sensor we will alert our user by alarming the buzzer and also we will notify the registered user with our system via our mobile application. As a gas leakage precautionary system our system has an exhaust fan that will spread out the gas outside environment of room.
+
 ### 3D model of Gas level monitoring system
 ![image](https://user-images.githubusercontent.com/95094083/204203522-b9896378-0acf-4e6f-b42d-f61854d931e3.png)
 
