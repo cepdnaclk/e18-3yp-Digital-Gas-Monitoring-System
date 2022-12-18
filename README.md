@@ -18,6 +18,9 @@ The above diagram shows the solution architection of Gas level indicator system.
 
 <img src="https://latex.codecogs.com/png.image?\inline&space;\dpi{110}\bg{white}Current&space;Level(%)=\frac{(Wgas-WEmptyCylinder)}{(Gas&space;Weight&space;set&space;by&space;User)}" title="https://latex.codecogs.com/png.image?\inline \dpi{110}\bg{white}Current Level(%)=\frac{(Wgas-WEmptyCylinder)}{(Gas Weight set by User)}" />
 
+The last modified gas level reading will be transfered to firestore only when there is no change in readings in future for a specific amount of time. The user will be able to check the readings via our mobile application or via the lcd display that is being attached with our system.
+
+
 ### Data and Control Flow
 ![image](https://user-images.githubusercontent.com/95094083/204203325-5ba9f899-ed1a-4dba-b335-d2d99da205d1.png)
 
