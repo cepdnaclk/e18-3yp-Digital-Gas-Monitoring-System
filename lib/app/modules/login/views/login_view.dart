@@ -46,7 +46,7 @@ class LoginView extends GetView<LoginController> {
                       Container(
                           margin: const EdgeInsets.only(left: 5,right: 5,bottom: 20),
                           child:  Text('Enter your Phone Number',
-                              style: TextStyle(color: Colors.indigo[900], fontSize: 20, fontWeight: FontWeight.w800)))
+                              style: TextStyle(color: Colors.indigo[800], fontSize: 20, fontWeight: FontWeight.w800)))
                     ],
                   ),
                   Column(
@@ -66,7 +66,7 @@ class LoginView extends GetView<LoginController> {
                             ]),
                           )),
                       InputTextField(color: Colors.white, hint: '+94...'),
-                      EnterButton(text: 'GENERATE OTP', textColour: Colors.white, buttonColour: Colors.blue, onPressed: (){controller.verifyPhoneNumber();},)
+                      EnterButton(text: 'GENERATE OTP', textColour: Colors.white, buttonColour: Colors.cyan, onPressed: (){controller.verifyPhoneNumber();},)
 
                     ],
                   )

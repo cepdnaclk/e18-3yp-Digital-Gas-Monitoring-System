@@ -15,7 +15,7 @@ class OtpView extends GetView {
               padding: const EdgeInsets.all(10),
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
-                color: Colors.blue,
+                color: Colors.cyan,
               ),
               child: const Icon(
                 Icons.arrow_back_ios,
@@ -53,12 +53,12 @@ class OtpView extends GetView {
                           Container(
                               margin: const EdgeInsets.symmetric(
                                   horizontal: 20, vertical: 10),
-                              child: Center(
+                              child:  Center(
                                   child: Text(
                                       'Enter the 6 digits verification code sent to your number',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                        color: Colors.indigo[900],
+                                        color: Colors.indigo[800],
                                         fontSize: 20,
                                         fontWeight: FontWeight.w800,
                                       )))),
@@ -89,7 +89,7 @@ class OtpView extends GetView {
                         EnterButton(
                           text: 'VERIFY & CONTINUE',
                           textColour: Colors.white,
-                          buttonColour: Colors.blue,
+                          buttonColour: Colors.cyan,
                           onPressed: () {},
                         )
                       ],
