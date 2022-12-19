@@ -2,6 +2,7 @@ import 'package:bluetoothapp/app/modules/addGas/bindings/addGas_binding.dart';
 import 'package:bluetoothapp/app/modules/addGas/views/addGas_view.dart';
 import 'package:get/get.dart';
 
+import '../modules/addGas/views/scan_QR.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
@@ -14,7 +15,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.HOME;
+  static const INITIAL = Routes.ADDGAS;
 
   static final routes = [
     GetPage(
