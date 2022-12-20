@@ -20,15 +20,18 @@ class EnterButton extends StatelessWidget {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(2)),
 
+
       ),
     );
     return Container(
         height: 40,
+
         constraints: const BoxConstraints(
             maxWidth: 500
         ),
         margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: ElevatedButton(
+
           style: raisedButtonStyle,
           onPressed: () {onPressed();},
           child: Text(text,style: TextStyle(color: textColour),),

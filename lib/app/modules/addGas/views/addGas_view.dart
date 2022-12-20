@@ -17,7 +17,7 @@ class AddGasView extends GetView<AddGasController> {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    return Scaffold(backgroundColor: const Color(0xFFFFFF),
+    return Scaffold(backgroundColor: Colors.white,
       body: Center(
         child: Column(
           children: [
@@ -25,14 +25,15 @@ class AddGasView extends GetView<AddGasController> {
               padding: const EdgeInsets.all(15.0),
               child: Container(
                 decoration: const BoxDecoration(
-                    color: Colors.cyan,
+                    color: Colors.teal,
+
                     borderRadius: BorderRadius.only(topLeft: Radius.circular(50),bottomRight: Radius.circular(50),topRight: Radius.circular(10),bottomLeft: Radius.circular(10))),
                 //color: Colors.blueGrey,
                 height: height/8,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
-                    Text('Hey Mark!',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 30),),
+                    Text('Hey Vilakshan!',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 30),),
                     SizedBox(width: 10,),
 
                     ProfilePicture(
@@ -50,14 +51,17 @@ class AddGasView extends GetView<AddGasController> {
               child: Container(
                   constraints: const BoxConstraints(maxHeight: 340),
                   margin: const EdgeInsets.symmetric(horizontal: 8),
-                  child: Image.asset('assets/images/addGas.jpg')),),
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(50), child: Image.asset('assets/images/otpgas.png')
+                    // margin: const EdgeInsets.symmetric(horizontal: 8),
+                  ),),),
              Padding(
-               padding: const EdgeInsets.all(8.0),
-               child: Text('Scan QR CODE to add the gas', style: TextStyle(color: Colors.indigo[800],
+               padding: const EdgeInsets.all(15.0),
+               child: Text('Scan QR CODE to add the gas', style: TextStyle(color: Colors.blueGrey[700],
                 fontSize: 20,fontWeight: FontWeight.bold
                 ),),
              ),
-            EnterButton(text: 'PROCEED', textColour: Colors.white, buttonColour: Colors.cyan ,onPressed: (){Navigator.push(
+            EnterButton(text: 'PROCEED', textColour: Colors.white, buttonColour: Colors.teal ,onPressed: (){Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => ScanQR()),
             );})
