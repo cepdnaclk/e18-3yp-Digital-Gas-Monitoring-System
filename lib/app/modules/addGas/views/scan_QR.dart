@@ -12,7 +12,7 @@ class ScanQR extends GetView<AddGasController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(backgroundColor: Colors.cyan,
+        appBar: AppBar(backgroundColor: Colors.teal,
           title: const Text('PeGas'),
           actions: [
             IconButton(

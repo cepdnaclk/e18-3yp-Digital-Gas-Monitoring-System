@@ -8,6 +8,7 @@ class OtpView extends GetView {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
         backgroundColor: Colors.white,
         appBar: AppBar(
           leading: IconButton(
@@ -15,7 +16,7 @@ class OtpView extends GetView {
               padding: const EdgeInsets.all(10),
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
-                color: Colors.cyan,
+                color: Colors.teal,
               ),
               child: const Icon(
                 Icons.arrow_back_ios,
@@ -26,8 +27,12 @@ class OtpView extends GetView {
             onPressed: () => Navigator.of(context).pop(),
           ),
           elevation: 0,
-          backgroundColor: Colors.white,
+
           brightness: Brightness.light,
+          title: Center(
+            child: Text('OTP VERIFICATION',style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,
+            ),),
+          ),backgroundColor: Colors.teal,
         ),
         body: SafeArea(
           child: Column(
@@ -49,7 +54,8 @@ class OtpView extends GetView {
                               constraints: const BoxConstraints(maxHeight: 340),
                               margin: const EdgeInsets.symmetric(
                                   horizontal: 8, vertical: 10),
-                              child: Image.asset('assets/images/otp2.jpg')),
+                              child: Image.network(
+                                  'https://cdn.dribbble.com/users/3821672/screenshots/7172846/media/bdcf195a8ceaf94cd2e55ee274095c91.gif'),),
                           Container(
                               margin: const EdgeInsets.symmetric(
                                   horizontal: 20, vertical: 10),
@@ -58,7 +64,7 @@ class OtpView extends GetView {
                                       'Enter the 6 digits verification code sent to your number',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                        color: Colors.indigo[800],
+                                        color: Colors.black,
                                         fontSize: 20,
                                         fontWeight: FontWeight.w800,
                                       )))),
@@ -73,7 +79,7 @@ class OtpView extends GetView {
                               horizontal: 8, vertical: 10),
                           child: OtpTextField(
                             numberOfFields: 6,
-                            borderColor: Color(0xFF512DA8),
+                            //enabledBorderColor:Colors.teal,
                             //set to true to show as box or false to show as dash
                             showFieldAsBox: true,
                             //runs when a code is typed in
@@ -89,7 +95,7 @@ class OtpView extends GetView {
                         EnterButton(
                           text: 'VERIFY & CONTINUE',
                           textColour: Colors.white,
-                          buttonColour: Colors.cyan,
+                          buttonColour: Colors.teal,
                           onPressed: () {},
                         )
                       ],

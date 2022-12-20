@@ -1,4 +1,3 @@
-
 import 'dart:js';
 
 import 'package:bluetoothapp/app/components/gas_container.dart';
@@ -78,11 +77,16 @@ class HomeView extends GetView<HomeController> {
                 //padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-          GasContainer(width: width/3, widget: itemGridView(
-              controller.readGasLevel(), "Gas Level Indicator"), text: 'Gas Level Indicator'),
-                  GasContainer(width: width/3, widget: itemGridView(
-                      controller.readGasLevel(), "Gas Leakage Indicator"), text: 'Gas Leakage Indicator'),
-
+                  GasContainer(
+                      width: width / 3,
+                      widget: itemGridView(
+                          controller.readGasLevel(), "Gas Level Indicator"),
+                      text: 'Gas Level Indicator'),
+                  GasContainer(
+                      width: width / 3,
+                      widget: itemGridView(
+                          controller.readGasLevel(), "Gas Leakage Indicator"),
+                      text: 'Gas Leakage Indicator'),
                 ],
               ),
               HomeContainer(
@@ -106,7 +110,6 @@ class HomeView extends GetView<HomeController> {
       ]),
     );
   }
-
 
   GetBuilder<HomeController> itemGridView(
       Future<String>? funcController, String featureTitle) {
@@ -140,7 +143,7 @@ class HomeView extends GetView<HomeController> {
                     ]),
                 child: VStack(
                   [
-                    (snapshot.data.toString()).text.size(30).light.make(),
+                    (snapshot.data.toString()).text.size(25).light.make(),
                     // featureTitle.text.make()
                   ],
                   crossAlignment: CrossAxisAlignment.center,
@@ -155,5 +158,3 @@ class HomeView extends GetView<HomeController> {
     });
   }
 }
-
-
