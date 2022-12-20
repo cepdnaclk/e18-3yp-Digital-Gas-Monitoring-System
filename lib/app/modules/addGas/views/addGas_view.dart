@@ -33,11 +33,11 @@ class AddGasView extends GetView<AddGasController> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
                     Text('Hey Mark!',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 30),),
-                    SizedBox(width: 5,),
+                    SizedBox(width: 10,),
 
                     ProfilePicture(
                       name: 'Vilakshan',
-                      radius: 20,
+                      radius: 25,
                       fontsize: 20,
                       tooltip: true,
                       img: 'https://avatars.githubusercontent.com/u/73380111?v=4',
