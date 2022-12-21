@@ -1,7 +1,9 @@
-import 'package:bluetoothapp/app/modules/addGas/bindings/addGas_binding.dart';
-import 'package:bluetoothapp/app/modules/addGas/views/addGas_view.dart';
 import 'package:get/get.dart';
 
+import '../modules/addGas/bindings/addGas_binding.dart';
+import '../modules/addGas/views/addGas_view.dart';
+import '../modules/analyics_dashboard/bindings/analyics_dashboard_binding.dart';
+import '../modules/analyics_dashboard/views/analyics_dashboard_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
@@ -14,13 +16,12 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.HOME;
+  static const INITIAL = Routes.SPLASH;
 
   static final routes = [
     GetPage(
       name: _Paths.HOME,
       page: () => HomeView(),
-      binding: HomeBinding(),
     ),
     GetPage(
       name: _Paths.SPLASH,
@@ -29,13 +30,18 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.LOGIN,
-      page: () =>LoginView(),
+      page: () => LoginView(),
       binding: LoginBinding(),
     ),
     GetPage(
       name: _Paths.ADDGAS,
-      page: () =>AddGasView(),
+      page: () => AddGasView(),
       binding: AddGasBinding(),
+    ),
+    GetPage(
+      name: _Paths.ANALYICS_DASHBOARD,
+      page: () => const AnalyicsDashboardView(),
+      binding: AnalyicsDashboardBinding(),
     ),
   ];
 }

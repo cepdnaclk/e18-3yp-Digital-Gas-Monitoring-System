@@ -21,6 +21,8 @@ dependencies:
   sizer: ^2.0.15
   flutter_profile_picture: ^2.0.0
   numeric_keyboard: ^1.0.0
+  syncfusion_flutter_charts: ^20.3.61
+  
 
 dev_dependencies: 
   flutter_lints: ^2.0.0

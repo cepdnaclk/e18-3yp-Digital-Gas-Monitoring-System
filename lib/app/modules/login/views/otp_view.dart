@@ -8,6 +8,7 @@ class OtpView extends GetView {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
         backgroundColor: Colors.white,
         appBar: AppBar(
           leading: IconButton(
@@ -30,44 +31,37 @@ class OtpView extends GetView {
           brightness: Brightness.light,
         ),
         body: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Expanded(
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: <Widget>[
-                    Container(
-                      margin: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 20),
-                      child: Column(
-                        //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Container(
-                              constraints: const BoxConstraints(maxHeight: 340),
-                              margin: const EdgeInsets.symmetric(
-                                  horizontal: 8, vertical: 10),
-                              child: Image.asset('assets/images/otp2.jpg')),
-                          Container(
-                              margin: const EdgeInsets.symmetric(
-                                  horizontal: 20, vertical: 10),
-                              child: Center(
-                                  child: Text(
-                                      'Enter the 6 digits verification code sent to your number',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        color: Colors.indigo[900],
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w800,
-                                      )))),
-                        ],
-                      ),
-                    ),
-                    Column(
-                      children: [
-                        Container(
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                Container(
+                  margin: const EdgeInsets.symmetric(
+                      horizontal: 20, vertical: 20),
+                  child: Column(
+                    //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Container(
+                          constraints: const BoxConstraints(maxHeight: 340),
+                          margin: const EdgeInsets.symmetric(
+                              horizontal: 8, vertical: 10),
+                          child: Image.asset('assets/images/otp2.jpg')),
+                      Container(
+                          margin: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 10),
+                          child: Center(
+                              child: Text(
+                                  'Enter the 6 digits verification code sent to your number',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Colors.indigo[900],
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w800,
+                                  )))),
+                    ],
+                  ),
+                ),
+                Container(
                           constraints: const BoxConstraints(maxWidth: 500),
                           margin: const EdgeInsets.symmetric(
                               horizontal: 8, vertical: 10),
@@ -92,12 +86,9 @@ class OtpView extends GetView {
                           buttonColour: Colors.blue,
                           onPressed: () {},
                         )
-                      ],
-                    ),
-                  ],
-                ),
-              )
-            ],
+               
+              ],
+            ),
           ),
         ));
   }

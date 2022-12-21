@@ -24,6 +24,7 @@ class AddGasController extends GetxController {
 
   Future<void> checkWhetherGasIsAvailable()async{
     bool isAvilable = await FirebaseServices.checkWhetherGasIsAvailable(qrCodeResp);
+    print(".......isAvilable.......$isAvilable....................");
     if(isAvilable){
       Get.offAllNamed(Routes.HOME);
     }
