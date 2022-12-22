@@ -1,5 +1,6 @@
 import 'package:bluetoothapp/app/data/models/gas_model.dart';
 import 'package:bluetoothapp/app/data/services/firebase_service.dart';
+import 'package:bluetoothapp/app/routes/app_pages.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
@@ -12,11 +13,30 @@ enum AvaiablityStatus{
 
 class HomeController extends GetxController {
   //TODO: Implement HomeController
+  final String label;
+
+  HomeController({required this.label});
   double _gasLevel = 0;
   double _leakageLevel = 0;
   Color color1 = Colors.red;
-  Color color2 = Colors.red;
+  Color color2 = Colors.green;
   
+  String title1 = "Gas Level";
+  String title2 = "Gas Leakage Leve";
+
+
+  void onTap1() {
+    print(".......Gas Level Tapped.......");
+    Get.toNamed(Routes.ANALYICS_DASHBOARD);
+  }
+
+  void onTap2() {
+    print(".......Gas Leakage Level Tapped.......");
+
+  }
+
+
+
   var avaiablityStatus = AvaiablityStatus.low.obs;
   
 
@@ -39,7 +59,7 @@ class HomeController extends GetxController {
   Future<String> readGasLevel() async{
      print(".......Read Gas Level value.......");
       await FirebaseServices.readGasLevel();
- print(".......Calling Getter Method.......");
+      print(".......Calling Getter Method.......");
       _gasLevel = Gases.activeGas!.gasLevel;
       print(".......Gas Level value is ${_gasLevel}.......");
       if(_gasLevel>60){
@@ -63,7 +83,7 @@ class HomeController extends GetxController {
       print(".......Leakage level value is ${  _leakageLevel}.......");
        if(_leakageLevel>60){
         avaiablityStatus.value = AvaiablityStatus.high;  
-        color2 = Colors.green;
+        color2 = Colors.red;
 
       }else if(_leakageLevel>20){
         avaiablityStatus.value = AvaiablityStatus.average;  

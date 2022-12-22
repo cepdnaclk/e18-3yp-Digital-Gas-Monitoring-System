@@ -8,7 +8,6 @@ class OtpView extends GetView {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
         backgroundColor: Colors.white,
         appBar: AppBar(
           leading: IconButton(
@@ -35,6 +34,7 @@ class OtpView extends GetView {
           ),backgroundColor: Colors.teal,
         ),
         body: SafeArea(
+
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -74,6 +74,7 @@ class OtpView extends GetView {
                     Column(
                       children: [
                         Container(
+
                           constraints: const BoxConstraints(maxWidth: 500),
                           margin: const EdgeInsets.symmetric(
                               horizontal: 8, vertical: 10),
@@ -98,12 +99,9 @@ class OtpView extends GetView {
                           buttonColour: Colors.teal,
                           onPressed: () {},
                         )
-                      ],
-                    ),
-                  ],
-                ),
-              )
-            ],
+               
+              ],
+            ),
           ),
         ));
   }
