@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 
+
 import '../modules/addGas/bindings/addGas_binding.dart';
 import '../modules/addGas/views/addGas_view.dart';
 import '../modules/analyics_dashboard/bindings/analyics_dashboard_binding.dart';
@@ -17,6 +18,7 @@ class AppPages {
   AppPages._();
 
   static const INITIAL = Routes.SPLASH;
+
 
   static final routes = [
     GetPage(

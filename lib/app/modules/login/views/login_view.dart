@@ -20,6 +20,10 @@ class LoginView extends GetView<LoginController> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
+      appBar: AppBar(title: Center(
+        child: Text('LOGIN',style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,
+        ),),
+      ),backgroundColor: Colors.teal,),
       backgroundColor: Colors.white,
       body: Center(
         child: SafeArea(
@@ -27,6 +31,8 @@ class LoginView extends GetView<LoginController> {
             child: Container(
               height: MediaQuery.of(context).size.height,
               child: Column(
+                //crossAxisAlignment: CrossAxisAlignment.center,
+               // mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Column(
                     children: <Widget>[
@@ -35,18 +41,25 @@ class LoginView extends GetView<LoginController> {
                         child: Stack(
                           children: <Widget>[
                             Center(
-                              child: Container(
-                                  constraints: const BoxConstraints(maxHeight: 340),
-                                  margin: const EdgeInsets.symmetric(horizontal: 8),
-                                  child: Image.asset('assets/images/otp1.jpeg')),
-                            ),
+                              child: Padding(
+                                padding: const EdgeInsets.only(top: 20.0, bottom: 20),
+                                child: Container(
+                                    constraints: const BoxConstraints(maxHeight: 340),
+                                    margin: const EdgeInsets.symmetric(horizontal: 8),
+                                    child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(40), child: Image.network(
+                                        'https://cdn.dribbble.com/users/1817357/screenshots/5799171/media/4f73eb9e6b695a83be39ff71b54b5c4c.gif'
+                                      // margin: const EdgeInsets.symmetric(horizontal: 8),
+                                    ),),
+                              ),
+                            ),)
                           ],
                         ),
                       ),
                       Container(
                           margin: const EdgeInsets.only(left: 5,right: 5,bottom: 20),
-                          child:  Text('Enter your Phone Number',
-                              style: TextStyle(color: Colors.indigo[900], fontSize: 20, fontWeight: FontWeight.w800)))
+                          child:  Text('Enter your phone number',
+                              style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w800)))
                     ],
                   ),
                   Column(
@@ -66,7 +79,7 @@ class LoginView extends GetView<LoginController> {
                             ]),
                           )),
                       InputTextField(color: Colors.white, hint: '+94...'),
-                      EnterButton(text: 'GENERATE OTP', textColour: Colors.white, buttonColour: Colors.blue, onPressed: (){controller.verifyPhoneNumber();},)
+                      EnterButton(text: 'GENERATE OTP', textColour: Colors.white, buttonColour: Colors.teal, onPressed: (){controller.verifyPhoneNumber();},)
 
                     ],
                   )
