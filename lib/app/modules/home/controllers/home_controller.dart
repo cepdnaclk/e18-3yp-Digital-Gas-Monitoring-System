@@ -25,6 +25,11 @@ class HomeController extends GetxController {
   String title2 = "Gas Leakage Leve";
 
 
+  String image1 = "gas_level.png";
+  String image2 = "gas_leakage.png";
+
+
+
   void onTap1() {
     print(".......Gas Level Tapped.......");
     Get.toNamed(Routes.ANALYICS_DASHBOARD);
@@ -62,14 +67,14 @@ class HomeController extends GetxController {
       print(".......Calling Getter Method.......");
       _gasLevel = Gases.activeGas!.gasLevel;
       print(".......Gas Level value is ${_gasLevel}.......");
-      if(_gasLevel>60){
-        avaiablityStatus.value = AvaiablityStatus.high;  
-        color1 = Colors.green;
+      // if(_gasLevel>60){
+      //   avaiablityStatus.value = AvaiablityStatus.high;  
+      //   color1 = Colors.green;
 
-      }else if(_gasLevel>20){
-        avaiablityStatus.value = AvaiablityStatus.average;  
-        color1= Color(Colors.yellow[400]!.value);
-      }
+      // }else if(_gasLevel>20){
+      //   avaiablityStatus.value = AvaiablityStatus.average;  
+      //   color1= Color(Colors.yellow[400]!.value);
+      // }
 
       return _gasLevel.toString();
       
@@ -81,14 +86,14 @@ class HomeController extends GetxController {
       await FirebaseServices.readLeakageLevel();
       _leakageLevel = Gases.activeGas!.leakageLevel;
       print(".......Leakage level value is ${  _leakageLevel}.......");
-       if(_leakageLevel>60){
-        avaiablityStatus.value = AvaiablityStatus.high;  
-        color2 = Colors.red;
+      //  if(_leakageLevel>60){
+      //   avaiablityStatus.value = AvaiablityStatus.high;  
+      //   color2 = Colors.red;
 
-      }else if(_leakageLevel>20){
-        avaiablityStatus.value = AvaiablityStatus.average;  
-        color2= Color(Colors.yellow[400]!.value);
-      }
+      // }else if(_leakageLevel>20){
+      //   avaiablityStatus.value = AvaiablityStatus.average;  
+      //   color2= Color(Colors.yellow[400]!.value);
+      // }
      
 
       return  _leakageLevel.toString();
