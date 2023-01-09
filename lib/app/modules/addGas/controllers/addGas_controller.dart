@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 class AddGasController extends GetxController {
   //TODO: Implement HomeController
 
-  final count = 0.obs;
+  Rx<bool> isPressed = Rx<bool>(false);
   String qrCodeResp = "";
   @override
   void onInit() {
