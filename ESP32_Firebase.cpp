@@ -3,6 +3,9 @@
 #include <WiFi.h>
 #include <Firebase_ESP_Client.h>
 #include <NTPClient.h>
+#include <LiquidCrystal.h>
+#include <Wire.h>
+
 // Provide the token generation process info.
 #include <addons/TokenHelper.h>
 
@@ -15,6 +18,13 @@ float RL = 1.0;             /* In Module RL value is 1k Ohm */
 float Ro = 10.0;            /* The Ro value is 10k Ohm */
 float mVolt = 0.0;
 const float Ro_clean_air_factor = 10.0;
+
+// // initialize the library with the numbers of the interface pins
+// LiquidCrystal lcd(19, 23, 18, 17, 16, 15);
+
+//Define buzzer connected pin
+#define BUZZER_PIN 12
+#define LED_PIN 13
 
 //Define NTP Client to get time
 WiFiUDP ntpUDP;
@@ -85,8 +95,15 @@ bool checkLeakage(unsigned int lpg_ppm){
 }
 
 void setup() {
+    digitalWrite(LED_PIN,LOW);//turn off led initially
     // put your setup code here, to run once:
     Serial.begin(115200);
+  
+    // // set up the LCD's number of columns and rows:
+    // lcd.begin(16, 2);
+    // // Print a message to the LCD.
+    // lcd.print("Success");
+  
     pinMode(MQ6_Pin, INPUT);  /* Define A0 as a INPUT Pin */
     delay(500);
     Serial.println("Wait for 30 sec warmup");
@@ -160,6 +177,13 @@ void loop(){
   unsigned int LPG_ppm = LPG_PPM(Ratio_RsRo);
   // Serial.println(LPG_ppm);   /* Print the Gas PPM value in Serial Monitor */
   isLeaked=checkLeakage(LPG_ppm);
+  
+  // set the cursor to column 0, line 1
+  // (note: line 1 is the second row, since counting begins with 0):
+  // lcd.setCursor(0, 1);
+
+  // // print the number of seconds since reset:
+  // lcd.print(LPG_ppm);
  
   timeClient.update();
   String formattedTime = timeClient.getFormattedTime();
@@ -205,8 +229,14 @@ void loop(){
     if(isLeaked){
       Serial.println("LPG gas leaked");
       content.set("fields/leakageStatus/booleanValue",true); 
+      digitalWrite(BUZZER_PIN,HIGH); //turn on the buzzer
+      digitalWrite(LED_PIN,HIGH);//turn on led
+      delay(1000);
+      digitalWrite(BUZZER_PIN, LOW);  //turn buzzer off
+      delay(1000);
     }else{
        content.set("fields/leakageStatus/booleanValue", false); 
+       digitalWrite(LED_PIN,LOW);//turn off the led
     }
 
     Serial.print("Create document... ");
