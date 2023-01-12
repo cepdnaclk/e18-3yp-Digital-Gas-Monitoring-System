@@ -1,6 +1,7 @@
 import 'package:bluetoothapp/app/data/services/firebase_service.dart';
 import 'package:bluetoothapp/app/routes/app_pages.dart';
 import 'package:get/get.dart';
+import 'package:getwidget/components/toast/gf_toast.dart';
 
 class AddGasController extends GetxController {
   //TODO: Implement HomeController
@@ -26,7 +27,9 @@ class AddGasController extends GetxController {
     bool isAvilable = await FirebaseServices.checkWhetherGasIsAvailable(qrCodeResp);
     print(".......isAvilable.......$isAvilable....................");
     if(isAvilable){
+      
       Get.offAllNamed(Routes.HOME);
+      
     }
   }
 

@@ -1,8 +1,12 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class AnalyicsDashboardController extends GetxController {
+class AnalyicsDashboardController extends GetxController with GetSingleTickerProviderStateMixin{
 
 
+
+
+  late TabController tabController;
   final data1= [
   ChartSampleData(x: 'Jan', y: 15, series: 'A'),
   ChartSampleData(x: 'Feb', y: 20, series: 'A'),
@@ -27,6 +31,8 @@ final data2= [
   @override
   void onInit() {
     super.onInit();
+    tabController = TabController(length: 2, vsync: this);
+    
   }
 
   @override
@@ -36,6 +42,7 @@ final data2= [
 
   @override
   void onClose() {
+    tabController.dispose();
     super.onClose();
   }
 
