@@ -1,6 +1,7 @@
 import 'package:bluetoothapp/app/data/models/gas_model.dart';
 import 'package:bluetoothapp/app/data/services/firebase_service.dart';
 import 'package:bluetoothapp/app/routes/app_pages.dart';
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,12 @@ class HomeController extends GetxController {
   double _leakageLevel = 0;
   Color color1 = Colors.red;
   Color color2 = Colors.green;
+
+
+
+  var selectedOption = "Gas 1".obs;
+  List<String> options = ["Gas 1", "Gas 2", "Gas 3"];
+
   
   String title1 = "Gas Level";
   String title2 = "Gas Leakage Leve";
@@ -49,6 +56,7 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    FirebaseFunctions functions = FirebaseFunctions.instance;
   }
 
   @override

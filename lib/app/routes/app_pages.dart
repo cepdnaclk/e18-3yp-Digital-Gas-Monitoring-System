@@ -42,7 +42,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.ANALYICS_DASHBOARD,
-      page: () => const AnalyicsDashboardView(),
+      page: () => AnalyicsDashboardView(),
       binding: AnalyicsDashboardBinding(),
     ),
   ];
