@@ -1,5 +1,6 @@
 import 'package:bluetoothapp/app/components/gas_container.dart';
 import 'package:bluetoothapp/app/components/home_container.dart';
+import 'package:bluetoothapp/app/data/models/gas_model.dart';
 import 'package:bluetoothapp/app/data/models/user_model.dart';
 import 'package:bluetoothapp/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
@@ -20,15 +21,7 @@ class HomeView extends GetView<HomeController> {
       Get.put(HomeController(label: "controller2"), tag: "controller2");
   
 
-  final List<String> imageList = [
-    "https://cdn.pixabay.com/photo/2017/12/03/18/04/christmas-balls-2995437_960_720.jpg",
-    "https://cdn.pixabay.com/photo/2017/12/13/00/23/christmas-3015776_960_720.jpg",
-    "https://cdn.pixabay.com/photo/2019/12/19/10/55/christmas-market-4705877_960_720.jpg",
-    "https://cdn.pixabay.com/photo/2019/12/20/00/03/road-4707345_960_720.jpg",
-    "https://cdn.pixabay.com/photo/2019/12/22/04/18/x-mas-4711785__340.jpg",
-    "https://cdn.pixabay.com/photo/2016/11/22/07/09/spruce-1848543__340.jpg"
-  ];
-
+  
   HomeView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -36,12 +29,9 @@ class HomeView extends GetView<HomeController> {
     double width = Get.width;
     
     return Scaffold(
-        backgroundColor: Colors.teal[50],
+      
         appBar: AppBar(
-          actions: [
           
-          ],
-          backgroundColor: Colors.teal,
         ),
         drawer: GFDrawer(
           child: ListView(
@@ -65,7 +55,7 @@ class HomeView extends GetView<HomeController> {
                 leading: Icon(Icons.edit),
                 title: Text('Edit / Add Gas'),
                 onTap: (){
-                  Get.to(Routes.EDIT_GAS);
+                  Get.toNamed(Routes.EDIT_GAS);
                 },
               ),
               ListTile(
@@ -90,18 +80,15 @@ class HomeView extends GetView<HomeController> {
                 child: Obx(() {
                  
                   return DropdownButton(
-                    hint: Text("Select an option"),
-                    value: controller1.selectedOption.value,
-                    items: controller1.options.map((String value) {
+                    
+                    value: controller1.selectedGasTitle.value,
+                    items: controller1.gasList.map((Gas gas) {
                       return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
+                        value: gas.macAddress,
+                        child: Text(gas.macAddress),
                       );
                     }).toList(),
-                    onChanged: (String ? value) {
-                      print(value);
-                      controller1.selectedOption.value = value!;
-                    },
+                    onChanged: ((value) => controller1.onChange(value??"")),
                   );
                 }),
               ),
@@ -110,116 +97,22 @@ class HomeView extends GetView<HomeController> {
           ],
         ),),
             
-          makeCard(controller1).elevation(20).withRounded(value: 10).make(),
+          makeCard(controller1).elevation(4).withRounded(value: 10).make(),
           // TODO: Add up your widgets
-          GFItemsCarousel(
-            rowCount: 3,
-            children: [
-              carouselSimpleCard().elevation(20).withRounded().make(),
-              carouselSimpleCard().elevation(20).withRounded().make(),
-              carouselSimpleCard().elevation(20).withRounded().make(),
-            ],
-          ),
+          // GFItemsCarousel(
+          //   rowCount: 3,
+          //   children: [
+          //     carouselSimpleCard().elevation(20).withRounded().make(),
+          //     carouselSimpleCard().elevation(20).withRounded().make(),
+          //     carouselSimpleCard().elevation(20).withRounded().make(),
+          //   ],
+          // ),
+          SizedBox(height: 20,),
 
-          makeCard(controller2).elevation(20).withRounded(value: 10).make(),
-        ])
+          makeCard(controller2).elevation(4).withRounded(value: 10).make(),
+        ]).p12()
 
-        //    GridView.count(
-        //     crossAxisCount: 2,
-        //     children: [
-        //       itemGridView(Get.find<HomeController>(tag: "controller1")),
-        //       itemGridView(Get.find<HomeController>(tag: "controller2")),
-
-        //     ],
-
-        //   // drawer: Drawer(
-        //   //   child: ListView(
-        //   //     // Important: Remove any padding from the ListView.
-        //   //     padding: EdgeInsets.zero,
-        //   //     children: [
-        //   //       DrawerHeader(
-        //   //         decoration: BoxDecoration(
-        //   //           color: Colors.teal,
-        //   //         ),
-        //   //         child: Column(
-        //   //           crossAxisAlignment: CrossAxisAlignment.center,
-        //   //           mainAxisAlignment: MainAxisAlignment.center,
-        //   //           children: const [
-        //   //             Padding(
-        //   //               padding: EdgeInsets.all(8.0),
-        //   //               child: ProfilePicture(
-        //   //                 name: 'Vilakshan',
-        //   //                 radius: 25,
-        //   //                 fontsize: 20,
-        //   //                 tooltip: true,
-        //   //                 img:
-        //   //                     'https://avatars.githubusercontent.com/u/73380111?v=4',
-        //   //               ),
-        //   //             ),
-        //   //             Text(
-        //   //               'Available devices',
-        //   //               style: TextStyle(color: Colors.white, fontSize: 20),
-        //   //             ),
-        //   //           ],
-        //   //         ),
-        //   //       ),
-        //   //       ListTile(
-        //   //         title: const Text('Gas 1'),
-        //   //         onTap: () {
-        //   //           Navigator.pop(context);
-        //   //         },
-        //   //       ),
-        //   //       ListTile(
-        //   //         title: const Text('Gas 2'),
-        //   //         onTap: () {
-        //   //           Navigator.pop(context);
-        //   //         },
-        //   //       ),
-        //   //     ],
-        //   //   ),
-
-        //   // ),
-        //   // body: ListView(children: [
-        //   //   Container(
-        //   //     child: Column(
-        //   //       children: [
-        //   //         Row(
-        //   //           //padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
-        //   //           mainAxisAlignment: MainAxisAlignment.center,
-        //   //           children: [
-        //   //             GasContainer(
-        //   //                 width: width / 3,
-        //   //                 widget: itemGridView(
-        //   //                     controller.readGasLevel(), "Gas Level Indicator"),
-        //   //                 text: 'Gas Level Indicator'),
-        //   //             GasContainer(
-        //   //                 width: width / 3,
-        //   //                 widget: itemGridView(
-        //   //                     controller.readGasLevel(), "Gas Leakage Indicator"),
-        //   //                 text: 'Gas Leakage Indicator'),
-        //   //           ],
-        //   //         ),
-        //   //         HomeContainer(
-        //   //           image: Image.asset(
-        //   //             'assets/images/analysis.jpg',
-        //   //           ),
-        //   //           text: 'Usage Analysis',
-        //   //           onTap: () {
-        //   //             debugPrint("Analysisi tapped!");
-        //   //           },
-        //   //         ),
-        //   //         HomeContainer(
-        //   //             image: Image.asset('assets/images/notes.jpg'),
-        //   //             text: 'Notes',
-        //   //             onTap: () {
-        //   //               debugPrint("Notes tapped!");
-        //   //             })
-        //   //       ],
-        //   //     ),
-        //   //   ),
-        //   // ]),
-        // )
-
+       
         );
   }
 
@@ -251,7 +144,7 @@ class HomeView extends GetView<HomeController> {
         [
           Image.asset(
               "assets/images/${controller.label == "controller1" ? controller.image1 : controller.image2}",
-              width: width * 0.55,
+              width: width * 0.5,
               fit: BoxFit.fill),
           Expanded(
             child: FutureBuilder(
@@ -269,14 +162,10 @@ class HomeView extends GetView<HomeController> {
                               .makeCentered()),
                       HStack(
                         [
-                          Text("Happy"),
-                          GFButton(
-                            onPressed: () {},
-                            icon: Icon(Icons.menu),
-                            child: "more".text.black.make(),
-                            color: Color(0xfffdf4ad),
-                          )
-                        ],
+                          CircleAvatar(child: Icon(Icons.face,color: Colors.white,),),
+                          ElevatedButton.icon(onPressed: (){
+                             Get.toNamed(Routes.ANALYICS_DASHBOARD);
+                          }, icon: Icon(Icons.remove_red_eye_outlined), label: "make".text.make(),)],
                         alignment: MainAxisAlignment.spaceBetween,
                         axisSize: MainAxisSize.max,
                       ),
@@ -290,63 +179,8 @@ class HomeView extends GetView<HomeController> {
         ],
         crossAlignment: CrossAxisAlignment.stretch,
       ),
-    ).height(height * 0.2).width(double.infinity).make());
+    ).height(height * 0.25).width(double.infinity).make());
   }
 
-  itemGridView(HomeController controller) {
-    print(
-        "..............Item Grid View passed with ${controller.label}.............");
-    return FutureBuilder<String>(
-        future: (controller.label == "controller1"
-            ? controller.readGasLevel()
-            : controller.readLeakageLevel()),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return GestureDetector(
-              onTap: (controller.label == "controller1"
-                  ? controller.onTap1
-                  : controller.onTap2),
-              child: Container(
-                width: 200.0,
-                height: 200.0,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("assets/images/level_showing.png"),
-                        fit: BoxFit.cover,
-                        colorFilter: ColorFilter.mode(
-                            Colors.teal.withOpacity(0.4), BlendMode.dstATop)),
-                    color: Colors.white,
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                        color: (controller.label == "controller1"
-                            ? controller.color1
-                            : controller.color2),
-                        width: 10.0),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.black26,
-                          offset: Offset(5.0, 5.0),
-                          blurRadius: 10.0)
-                    ]),
-                child: VStack(
-                  [
-                    (snapshot.data.toString()).text.size(60).make(),
-                    (controller.label == "controller1"
-                            ? controller.title1
-                            : controller.title2)
-                        .text
-                        .semiBold
-                        .make()
-                  ],
-                  crossAlignment: CrossAxisAlignment.center,
-                ).centered(),
-              ),
-            );
-          } else if (snapshot.hasError) {
-            return Text("An error occurred: ${snapshot.error}");
-          } else {
-            return CircularProgressIndicator();
-          }
-        });
-  }
+ 
 }

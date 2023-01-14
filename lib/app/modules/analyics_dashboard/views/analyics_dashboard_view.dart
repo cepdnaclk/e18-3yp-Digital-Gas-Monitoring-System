@@ -12,38 +12,39 @@ class AnalyicsDashboardView extends GetView<AnalyicsDashboardController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: GFTabBarView(
-          controller: controller.tabController,
-          children: <Widget>[
-            demoChart(),
-             Container(
-              child: Center(child: GFButton(onPressed: (){
-              GFToast.showToast(
-                
-                  'GetFlutter is an open source library that comes with pre-build 1000+ UI components.',
-                  context,
+        body: SafeArea(
+          child: GFTabBarView(
+            controller: controller.tabController,
+            children: <Widget>[
+              demoChart(),
+               Container(
+                child: Center(child: GFButton(onPressed: (){
+                GFToast.showToast(
                   
-                  toastPosition: GFToastPosition.BOTTOM,
-                  textStyle: TextStyle(fontSize: 16, color: GFColors.LIGHT),
-                  backgroundColor: GFColors.DARK,
-                  trailing: Icon(
-                    Icons.notifications,
-                    color: GFColors.SUCCESS,
-                  ));
-              })),
-             )
-            
-          ],
+                    'GetFlutter is an open source library that comes with pre-build 1000+ UI components.',
+                    context,
+                    
+                    toastPosition: GFToastPosition.BOTTOM,
+                    textStyle: TextStyle(fontSize: 16, color: GFColors.LIGHT),
+                    backgroundColor: GFColors.DARK,
+                    trailing: Icon(
+                      Icons.notifications,
+                      color: GFColors.SUCCESS,
+                    ));
+                })),
+               )
+              
+            ],
+          ),
         ),
         bottomNavigationBar: GFTabBar(
-         
-          tabBarColor: Color(0xff49453b),
-          indicatorColor: Color(0xffebad24),
+          tabBarColor: Color(0xff00acec),
+          indicatorColor: Colors.white,
           indicatorWeight: 5,
           length: 2,
           tabs: <Widget>[
             Tab(
-              icon: ImageIcon( AssetImage("assets/icons/week.png"), ),
+              icon: ImageIcon( AssetImage("assets/icons/week.png"), color: Colors.white,),
              
             ),
             Tab(
@@ -59,7 +60,9 @@ class AnalyicsDashboardView extends GetView<AnalyicsDashboardController> {
   Container demoChart() {
     return Container(
         child: SfCartesianChart(
-            plotAreaBackgroundColor: Color(0xfffdf4ad),
+            plotAreaBackgroundColor: Colors.white,
+            plotAreaBorderColor: Color(0xff00acec),
+           
             enableAxisAnimation: true,
             primaryXAxis: CategoryAxis(),
             series: <ChartSeries>[

@@ -29,11 +29,11 @@ class FirebaseHelpers{
 
 
 
-  static Future<bool> addElemetstoAnArray (String path,data)async{
+  static Future<bool> addElemetstoAnArray (String path,String fieldname,data)async{
     return await FirebaseFirestore.instance
     .doc(path)
     .update({
-      "items": FieldValue.arrayUnion([data])
+      fieldname: FieldValue.arrayUnion([data])
     }).then((value) => true).onError((error, stackTrace) => false);
 
   }

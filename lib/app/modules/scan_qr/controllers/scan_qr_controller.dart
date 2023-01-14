@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bluetoothapp/app/components/custom_dialog.dart';
 import 'package:bluetoothapp/app/data/models/gas_model.dart';
 import 'package:bluetoothapp/app/data/services/firebase_service.dart';
@@ -27,7 +29,9 @@ class ScanQrController extends GetxController {
   }
 
   Future<void> checkWhetherGasIsAvailable() async {
-    bool isAlreadyAdded = Gases.gasList.contains(Gas(qrCodeResp));
+    Completer completer = Completer();
+    bool isAlreadyAdded = Gases.gasList.any((object) => object.macAddress == qrCodeResp);
+    Gases.gasList.map((e) => print(e.macAddress));
     if (!isAlreadyAdded) {
       FirebaseServices.checkWhetherGasIsAvailable(qrCodeResp)
           .then((isAvailable) async {
@@ -35,12 +39,16 @@ class ScanQrController extends GetxController {
         //to check whether the gas is valid, it is manufactured by us
         if (isAvailable) {
           FirebaseServices.addGas(qrCodeResp).then((value) {
-            (value)?Get.offAllNamed(Routes.HOME):null;
+            if(value){
+                Gases.gasList.add(Gas(qrCodeResp));
+                Get.offAllNamed(Routes.HOME);
+            }
           });
+          completer.complete();
         //OtherWise
         }else{
           
-          Get.dialog(CustomDialog(
+          await Get.dialog(CustomDialog(
                   circleAvatar: CircleAvatar(
                     backgroundColor: Colors.red[600],
                     radius: 60,
@@ -53,7 +61,9 @@ class ScanQrController extends GetxController {
                   description: 'This Is not a valid Device',
                   title: "Error",
                   onpressed: () {
-                    Get.offNamed(Routes.SCAN_QR);
+                    print("close this dialog");
+                    Get.back();
+                    completer.complete();
                   },
                 ),
                 barrierColor: Colors.transparent,
@@ -61,6 +71,9 @@ class ScanQrController extends GetxController {
         }
         
       });
+        return completer.future;
     }
+Get.offAllNamed(Routes.HOME);
+  
   }
 }
