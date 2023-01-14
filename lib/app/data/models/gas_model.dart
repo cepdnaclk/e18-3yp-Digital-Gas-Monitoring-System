@@ -2,6 +2,8 @@ class Gas{
   final String macAddress;
   late double _gasLevel;
   late double _leakageLevel;
+  late String _nickName;
+  String ? _description;
  
 
   get gasLevel => _gasLevel;
@@ -12,14 +14,17 @@ class Gas{
 
   set leakageLevel( value) => _leakageLevel = value;
 
-  Gas(this.macAddress);
 
-  
-  
-  
+  String get nickName => _nickName ;
 
+  set nickName (String value) {_nickName = value;}
 
-  
+  String ? get description => _description ?? '' ;
+
+  set description (String ? value) {_description = value;}
+   
+
+  Gas(this.macAddress);  
 
 }
 

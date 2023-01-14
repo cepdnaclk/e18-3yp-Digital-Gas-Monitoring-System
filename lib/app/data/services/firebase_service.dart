@@ -8,28 +8,36 @@ import 'package:firebase_auth/firebase_auth.dart';
 class FirebaseServices {
 //to check whether user is avialable in the firestore
   static Future<bool> checkWhetherUserNameIsThere() async {
-    String uid = UserModel.uid!;
+    String uid = UserModel.uid;
     return await FirebaseHelpers.checkIfDocExists("users", uid);
   }
 
+
+  static Future<void> initializeUser()async{
+    await FirebaseHelpers.readDoc("users/${UserModel.uid}").then((value){
+       Gases.gasList = (value.get("gases") as List<dynamic>).cast<String>().map((macAddress) => Gas(macAddress)).toList();
+    });
+    
+  }
+
+  static Future<bool> removeGasFromUser(String gasId) async{
+    
+    return await FirebaseHelpers.removeDataFromArray("users/${UserModel.uid}", "gases", gasId);
+  }
+
   static Future<void> addUser() async {
-    String uid = UserModel.uid!;
+    String uid = UserModel.uid;
     
     Map<String, dynamic> data = {"userName": UserModel.userName,"gases":[]};
-    await FirebaseHelpers.addOnFirestore("users", uid, data);
+    await FirebaseHelpers.addOnFirestore("users/$uid", data);
     GetStorageHelpers.addKeyToLocalStorage("id", uid);
   }
 
-  static Future<void> addGas() async{
-     FirebaseFirestore.instance
-    .collection("users")
-    .doc("${UserModel.uid}")
-    .get()
-    .then((value) {  
-      (value.data()!["gases"] as List<String>).forEach((element) {
-          Gases.gasList.add(Gas(element));
-       });
-    });
+
+  //To Add Gases to users field on firestore
+  static Future<bool> addGas(String gasId) async{
+    return await FirebaseHelpers.addElemetstoAnArray("users/${UserModel.uid}",gasId);
+
   }
 
 
@@ -43,7 +51,7 @@ class FirebaseServices {
     .doc(Gases.activeGas!.macAddress)
     .get()
     .then((value) {        
-      Gases.activeGas!.gasLevel = (value.data()!["gaslevel"]) as double;
+      Gases.activeGas!.gasLevel = (value.data()!["gasLevel"]) as double;
      
     });
   }
