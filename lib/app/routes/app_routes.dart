@@ -8,6 +8,8 @@ abstract class Routes {
   static const LOGIN = _Paths.LOGIN;
   static const ADDGAS = _Paths.ADDGAS;
   static const ANALYICS_DASHBOARD = _Paths.ANALYICS_DASHBOARD;
+  static const EDIT_GAS = _Paths.EDIT_GAS;
+  static const SCAN_QR = _Paths.SCAN_QR;
 }
 
 abstract class _Paths {
@@ -17,4 +19,6 @@ abstract class _Paths {
   static const LOGIN = '/login';
   static const ADDGAS = '/addGas';
   static const ANALYICS_DASHBOARD = '/analyics-dashboard';
+  static const EDIT_GAS = '/edit-gas';
+  static const SCAN_QR = '/scan-qr';
 }

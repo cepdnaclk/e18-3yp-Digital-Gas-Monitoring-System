@@ -9,22 +9,43 @@ class FirebaseHelpers{
     var doc = await collectionRef.doc(docId).get();
     return doc.exists;
   } catch (e) {
-    throw e;
+    return false;
   }
 }
 
-  static Future<void> addOnFirestore (String colId , String docId ,Map<String,dynamic> data) async {
+  static Future<void> addOnFirestore (String path,Map<String,dynamic> data) async {
     try {
-    var collectionRef = FirebaseFirestore.instance.collection(colId);
-    collectionRef.doc(docId).set(data)
+    var collectionRef = FirebaseFirestore.instance.doc(path).set(data)
     .then((value) => print("Data Added Successfully"))
     .catchError((error) => print("Failed to add user: $error"));
   } catch (e) {
     throw e;
   }}
 
+
+  static Future<DocumentSnapshot<Map<String, dynamic>>> readDoc(String path)async{
+      return await FirebaseFirestore.instance.doc(path).get();
+  }
+
+
+
+  static Future<bool> addElemetstoAnArray (String path,data)async{
+    return await FirebaseFirestore.instance
+    .doc(path)
+    .update({
+      "items": FieldValue.arrayUnion([data])
+    }).then((value) => true).onError((error, stackTrace) => false);
+
+  }
   
-  
-    
-  
-}
+  static Future<bool> removeDataFromArray(String path,String fieldname,String valueToBeRemoved) async{
+
+ return await FirebaseFirestore.instance
+    .doc(path)
+    .update({
+      fieldname : FieldValue.arrayRemove([valueToBeRemoved])
+    }).then((value) {
+      print("removing");
+      return true;
+    }).catchError((e)=>false);
+}}

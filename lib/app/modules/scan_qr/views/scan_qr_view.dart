@@ -1,11 +1,15 @@
+import 'package:bluetoothapp/app/modules/login/controllers/login_controller.dart';
+import 'package:bluetoothapp/app/modules/scan_qr/controllers/scan_qr_controller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
-import '../controllers/addGas_controller.dart';
 
-class ScanQR extends GetView<AddGasController> {
+
+
+
+class ScanQR extends GetView<ScanQrController> {
   final controller = Get.find();
   MobileScannerController cameraController = MobileScannerController();
   ScanQR({Key? key}) : super(key: key);
@@ -56,9 +60,8 @@ class ScanQR extends GetView<AddGasController> {
               if (barcode.rawValue == null) {
                 print('Failed to scan Barcode');
               } else {
-                controller.qrCodeResp = barcode.rawValue!;
-                print('Barcode found! ${controller.qrCodeResp}');
-                controller.qrCodeResp = controller.qrCodeResp.replaceFirst("http://", "");
+                controller.qrCodeResp = barcode.rawValue!.trim();
+                print('Barcode found! ${controller.qrCodeResp}');               
                 await controller.checkWhetherGasIsAvailable();
               }
             }));

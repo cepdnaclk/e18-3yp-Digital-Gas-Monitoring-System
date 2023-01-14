@@ -1,5 +1,7 @@
 import 'package:bluetoothapp/app/components/gas_container.dart';
 import 'package:bluetoothapp/app/components/home_container.dart';
+import 'package:bluetoothapp/app/data/models/user_model.dart';
+import 'package:bluetoothapp/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_profile_picture/flutter_profile_picture.dart';
 
@@ -49,21 +51,22 @@ class HomeView extends GetView<HomeController> {
                 currentAccountPicture: GFAvatar(
                   radius: 80.0,
                   backgroundImage: NetworkImage(
-                      "https://cdn.pixabay.com/photo/2017/12/03/18/04/christmas-balls-2995437_960_720.jpg"),
+                      "https://robohash.org/2e1d8c12493ba12bc0eba06ef2cdb34e?set=set4&bgset=bg1&size=200x200"),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text('user name'),
-                    Text('user@userid.com'),
+                    Text(UserModel.userName??""),
                   ],
                 ),
               ),
               ListTile(
                 leading: Icon(Icons.edit),
-                title: Text('Edit Gas'),
-                onTap: null,
+                title: Text('Edit / Add Gas'),
+                onTap: (){
+                  Get.to(Routes.EDIT_GAS);
+                },
               ),
               ListTile(
                 title: Text(''),

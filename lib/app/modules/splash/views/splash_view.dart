@@ -14,16 +14,13 @@ class SplashView extends GetView<SplashController> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('SplashView'),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Text(
-          'SplashView is working',
-          style: TextStyle(fontSize: 20),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/splash_bg.png'),
+            fit: BoxFit.cover,
+          ),
         ),
-      ),
-    );
+    ));
   }
 }
