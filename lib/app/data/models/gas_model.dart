@@ -31,7 +31,7 @@ class Gas{
 
 
 class Gases {
-  static Gas? activeGas = Gas("0C:B8:15:EC:A8:94");
+  static Gas? activeGas = Gas("3A:82:D0:DA:90:8A");
   static List<Gas>gasList = [];
   
 }

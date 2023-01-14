@@ -16,6 +16,7 @@ class FirebaseServices {
   static Future<void> initializeUser()async{
     await FirebaseHelpers.readDoc("users/${UserModel.uid}").then((value){
        Gases.gasList = (value.get("gases") as List<dynamic>).cast<String>().map((macAddress) => Gas(macAddress)).toList();
+       print(Gases.gasList);
     });
     
   }
@@ -36,8 +37,7 @@ class FirebaseServices {
 
   //To Add Gases to users field on firestore
   static Future<bool> addGas(String gasId) async{
-    return await FirebaseHelpers.addElemetstoAnArray("users/${UserModel.uid}",gasId);
-
+   return await FirebaseHelpers.addElemetstoAnArray("users/${UserModel.uid}","gases",gasId);
   }
 
 

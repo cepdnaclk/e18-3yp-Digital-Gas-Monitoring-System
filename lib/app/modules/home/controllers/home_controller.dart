@@ -27,13 +27,14 @@ class HomeController extends GetxController {
   var selectedOption = "Gas 1".obs;
   List<String> options = ["Gas 1", "Gas 2", "Gas 3"];
 
-  
-  String title1 = "Gas Level";
-  String title2 = "Gas Leakage Leve";
+  List<Gas> gasList = Gases.gasList;
+  RxString selectedGasTitle = Gases.activeGas!.macAddress.obs;
+  onChange(String newValue) {
+        selectedGasTitle.value = newValue;
+    }
 
-
-  String image1 = "gas_level.png";
-  String image2 = "gas_leakage.png";
+  String image1 = "gas_level.jpg";
+  String image2 = "gas_leakage.jpg";
 
 
 
@@ -57,6 +58,7 @@ class HomeController extends GetxController {
   void onInit() {
     super.onInit();
     FirebaseFunctions functions = FirebaseFunctions.instance;
+    
   }
 
   @override

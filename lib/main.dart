@@ -20,7 +20,7 @@ void main() async {
     // Ideal time to initialize
   FirebaseFunctions.instance.useFunctionsEmulator('localhost', 5001);
   await GetStorage.init();
-  final color = Color(0xfffdf4ad); // using the color code #fdf4ad
+  final color = Color(0xff00acec); // using the color code #fdf4ad
 final materialColor = MaterialColor(color.value, <int, Color>{
   50: color,
   100: color,
@@ -43,6 +43,15 @@ final materialColor = MaterialColor(color.value, <int, Color>{
       theme: ThemeData(
        
   primarySwatch: materialColor,
+  iconTheme: IconThemeData(
+    color: Colors.white
+  ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+  style: ButtonStyle(
+    backgroundColor: MaterialStateProperty.all<Color>(Color(0xff00acec)), //button color
+    foregroundColor: MaterialStateProperty.all<Color>(Colors.white), //text (and icon)
+  ),
+),
   
   textTheme: TextTheme(
     headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),

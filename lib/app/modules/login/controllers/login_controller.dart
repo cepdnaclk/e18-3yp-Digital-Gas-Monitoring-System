@@ -104,8 +104,11 @@ class LoginController extends GetxController {
                               print(
                                   "...................User Submission Initialized ...............");
                               UserModel.userName = userName;
-                              await FirebaseServices.addUser();
-                              Get.back();
+                              await FirebaseServices.addUser().then((value)async {
+                                await routingBasedOnGases();                               
+
+                              });
+                              
                             }
                           },
                           child: "Sign up".text.make(),
@@ -115,33 +118,12 @@ class LoginController extends GetxController {
                     ),
                   ),
                 ));
+          }else{
+            await routingBasedOnGases();
           }
 
           
-          await FirebaseServices.initializeUser();       //to add all gases under the users account
-          if (Gases.gasList.isEmpty) {
-            Get.dialog(
-                CustomDialog(
-                  circleAvatar: CircleAvatar(
-                    backgroundColor: Colors.green[800],
-                    radius: 60,
-                    child: Icon(
-                      Icons.qr_code,
-                      color: Colors.white,
-                      size: 50,
-                    ),
-                  ),
-                  description: 'Scan QR Code to add the Gas Cylinder',
-                  title: "Welcome",
-                  onpressed: () {
-                    Get.offNamed(Routes.SCAN_QR);
-                  },
-                ),
-                barrierColor: Colors.transparent,
-                barrierDismissible: false);
-          } else {
-            Get.offAllNamed(Routes.HOME);
-          }
+          
         }).catchError((e) {
           print(e);
         });
@@ -149,5 +131,35 @@ class LoginController extends GetxController {
       timeout: const Duration(seconds: 60),
       codeAutoRetrievalTimeout: (String verificationId) {},
     );
+  }
+
+  Future<void> routingBasedOnGases() async {
+    await FirebaseServices.initializeUser();       //to add all gases under the users account
+    if (Gases.gasList.isEmpty) {
+      Get.dialog(
+          CustomDialog(
+            circleAvatar: CircleAvatar(
+              backgroundColor: Color(0xff00acec),
+              radius: 60,
+              child: Icon(
+                Icons.qr_code,
+                color: Colors.white,
+                size: 50,
+              ),
+            ),
+            description: 'Scan QR Code to add the Gas Cylinder',
+            title: "Welcome",
+            onpressed: () {
+              Get.back(closeOverlays: true);
+              Get.offNamed(Routes.SCAN_QR);
+            },
+          ),
+          barrierColor: Colors.transparent,
+          barrierDismissible: false);
+    } else {
+      print(Gases.gasList);
+      Get.back(closeOverlays: true);
+      Get.offAllNamed(Routes.HOME);
+    }
   }
 }

@@ -101,7 +101,7 @@ class LoginView extends GetView<LoginController> {
                                 size: GFSize.LARGE, type: GFLoaderType.circle),
                           );
                         },
-                  child: "GENERATE OTP".text.make())),
+                  child: "GENERATE OTP".text.white.make())),
             ],
             crossAlignment: CrossAxisAlignment.center,
             alignment: MainAxisAlignment.spaceEvenly,

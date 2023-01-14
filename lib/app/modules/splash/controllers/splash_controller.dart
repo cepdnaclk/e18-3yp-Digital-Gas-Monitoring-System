@@ -23,6 +23,7 @@ class SplashController extends GetxController {
     //check whether the login session is stored on the device
     print("Calling onReady() ..............by Splash Controller ");
     await Future.delayed(const Duration(milliseconds: 3)).then((_) async {
+
       //check the user id is stored in local storage and get all gas data from remote server
       if (getStorage.read("id") != null) {
         await FirebaseServices.initializeUser();            //to add all gases under the users account

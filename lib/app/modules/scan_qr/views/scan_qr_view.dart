@@ -63,6 +63,7 @@ class ScanQR extends GetView<ScanQrController> {
                 controller.qrCodeResp = barcode.rawValue!.trim();
                 print('Barcode found! ${controller.qrCodeResp}');               
                 await controller.checkWhetherGasIsAvailable();
+                print("qr code loop started");
               }
             }));
   }
