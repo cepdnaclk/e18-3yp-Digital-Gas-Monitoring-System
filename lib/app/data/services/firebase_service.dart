@@ -15,8 +15,8 @@ class FirebaseServices {
 
   static Future<void> initializeUser()async{
     await FirebaseHelpers.readDoc("users/${UserModel.uid}").then((value){
-       Gases.gasList = (value.get("gases") as List<dynamic>).cast<String>().map((macAddress) => Gas(macAddress)).toList();
-       print(Gases.gasList);
+       Gases.macAddresses = (value.get("gases") as List<dynamic>).cast<String>();
+       
     });
     
   }
@@ -45,27 +45,12 @@ class FirebaseServices {
     return FirebaseHelpers.checkIfDocExists("gases", qrCodeResp);
   }
 
-  static Future<void> readGasLevel() async{
-     await FirebaseFirestore.instance
-    .collection("gases")
-    .doc(Gases.activeGas!.macAddress)
-    .get()
-    .then((value) {        
-      Gases.activeGas!.gasLevel = (value.data()!["gasLevel"]) as double;
-     
-    });
+  static Future<Gas> readGas(String macAddress) async{
+    return await FirebaseHelpers.readDoc("gases/$macAddress").then((value) {
+        print("................readGas Successfully .................");
+       return Gas.fromJson(value.data()!, macAddress);
+    }
+    );
   }
-
-  static Future<void> readLeakageLevel() async{
-     await FirebaseFirestore.instance
-    .collection("gases")
-    .doc(Gases.activeGas!.macAddress)
-    .get()
-    .then((value) {        
-      Gases.activeGas!.leakageLevel = (value.data()!["leakagelevel"]) as double;
-    
-    });
-  }
-
 
 }

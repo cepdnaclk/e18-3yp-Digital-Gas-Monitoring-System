@@ -1,3 +1,4 @@
+import 'package:bluetoothapp/app/data/models/gas_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -32,6 +33,7 @@ final data2= [
   void onInit() {
     super.onInit();
     tabController = TabController(length: 2, vsync: this);
+    print("...........Analysis of of active gas => ${Gases.activeGas}.................");
     
   }
 

@@ -13,8 +13,7 @@ class OtpView extends GetView {
             child: VStack([
       Container(
         
-        child: Image.network(
-            'https://cdn.dribbble.com/users/3821672/screenshots/7172846/media/bdcf195a8ceaf94cd2e55ee274095c91.gif'),
+        child: Image.asset("assets/images/otp_view.gif")
       ),
       Text(
                   'Enter the 6 digits verification code sent to your number',

@@ -26,7 +26,7 @@ class EditGasView extends GetView<EditGasController> {
                   ? GFListTile(
                     avatar: CircleAvatar(child: "1".text.make()),
                       padding: EdgeInsets.all(20),
-                      titleText:controller.gasList[0].macAddress,
+                      titleText:controller.gasList[0],
                       subTitleText: "@Dehiwala Home",
                       color: Color.fromARGB(255, 228, 235, 238),
                       
@@ -41,7 +41,7 @@ class EditGasView extends GetView<EditGasController> {
                       child: GFListTile(
                     avatar: CircleAvatar(child: "${index+1}".text.make()),
                       padding: EdgeInsets.all(20),
-                      titleText:controller.gasList[index].macAddress,
+                      titleText:controller.gasList[index],
                       subTitleText: "@Dehiwala Home",
                       color: Color.fromARGB(255, 228, 235, 238),
                       enabled: true,

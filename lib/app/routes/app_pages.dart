@@ -1,3 +1,4 @@
+import 'package:bluetoothapp/app/modules/home/bindings/home_binding.dart';
 import 'package:get/get.dart';
 
 import '../modules/analyics_dashboard/bindings/analyics_dashboard_binding.dart';
@@ -23,6 +24,7 @@ class AppPages {
     GetPage(
       name: _Paths.HOME,
       page: () => HomeView(),
+      binding: HomeBinding(),
     ),
     GetPage(
       name: _Paths.SPLASH,

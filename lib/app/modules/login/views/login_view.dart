@@ -35,9 +35,7 @@ class LoginView extends GetView<LoginController> {
             [
               ClipRRect(
                 borderRadius: BorderRadius.circular(15),
-                child: Image.network(
-                  "https://cdn.dribbble.com/users/1817357/screenshots/5799171/media/4f73eb9e6b695a83be39ff71b54b5c4c.gif",
-                ),
+                child: Image.asset("assets/images/login.jpg")
               ),
               Container(
                   margin: const EdgeInsets.only(left: 5, right: 5, bottom: 20),

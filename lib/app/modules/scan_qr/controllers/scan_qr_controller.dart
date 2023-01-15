@@ -30,8 +30,8 @@ class ScanQrController extends GetxController {
 
   Future<void> checkWhetherGasIsAvailable() async {
     Completer completer = Completer();
-    bool isAlreadyAdded = Gases.gasList.any((object) => object.macAddress == qrCodeResp);
-    Gases.gasList.map((e) => print(e.macAddress));
+
+    bool isAlreadyAdded = Gases.macAddresses.contains(qrCodeResp);
     if (!isAlreadyAdded) {
       FirebaseServices.checkWhetherGasIsAvailable(qrCodeResp)
           .then((isAvailable) async {
@@ -40,7 +40,8 @@ class ScanQrController extends GetxController {
         if (isAvailable) {
           FirebaseServices.addGas(qrCodeResp).then((value) {
             if(value){
-                Gases.gasList.add(Gas(qrCodeResp));
+                Gases.macAddresses.add(qrCodeResp);
+                print(".....................Currently avaiable gases are ${Gases.macAddresses}...............................");
                 Get.offAllNamed(Routes.HOME);
             }
           });
