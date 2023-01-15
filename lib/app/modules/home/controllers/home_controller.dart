@@ -1,7 +1,6 @@
 import 'package:bluetoothapp/app/data/models/gas_model.dart';
 import 'package:bluetoothapp/app/data/services/firebase_service.dart';
 import 'package:bluetoothapp/app/routes/app_pages.dart';
-import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
@@ -38,6 +37,7 @@ class HomeController extends GetxController {
     super.onInit();
      gas = FirebaseServices.readGas(macAddresses[0]).then((value) {
           Gases.activeGas = value;
+          print(Gases.activeGas);
           return value;
         });
    

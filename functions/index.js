@@ -106,3 +106,21 @@ exports.fakeUserData = functions.https.onRequest((request, response)=>{
       },
   );
 });
+
+
+exports.getDataFromFirestore = functions.https.onRequest((request, response) => {
+  const path = "gases/0C:B8:15:EC:A8:94";
+
+  firebase.firestore().doc(path).get()
+      .then((doc) => {
+        if (!doc.exists) {
+          response.status(404).send("Document not found");
+          return;
+        }
+        const data = doc.data();
+        response.status(200).json(data);
+      })
+      .catch((err) => {
+        response.status(500).send(err);
+      });
+});

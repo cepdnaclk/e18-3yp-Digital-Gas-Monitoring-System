@@ -22,7 +22,7 @@ dependencies:
   flutter_profile_picture: ^2.0.0
   numeric_keyboard: ^1.0.0
   syncfusion_flutter_charts: ^20.3.61
-  cloud_functions: ^4.0.7
+  table_calendar: ^3.0.7
   intl_phone_number_input: ^0.7.2
 
   

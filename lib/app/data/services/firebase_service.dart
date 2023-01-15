@@ -48,6 +48,7 @@ class FirebaseServices {
   static Future<Gas> readGas(String macAddress) async{
     return await FirebaseHelpers.readDoc("gases/$macAddress").then((value) {
         print("................readGas Successfully .................");
+        
        return Gas.fromJson(value.data()!, macAddress);
     }
     );

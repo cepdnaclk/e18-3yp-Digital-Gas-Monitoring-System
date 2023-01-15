@@ -1,6 +1,8 @@
 
 import 'package:bluetoothapp/app/data/models/user_model.dart';
 import 'package:bluetoothapp/app/routes/app_pages.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 
@@ -22,7 +24,7 @@ class HomeView extends GetView<HomeController> {
         appBar: AppBar(
           actions: [
             IconButton(onPressed: (){
-              GetStorage().remove("id");
+              FirebaseAuth.instance.signOut();
               Get.offAllNamed(Routes.LOGIN);
             }, icon: Icon(Icons.logout))
           ],
