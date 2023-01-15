@@ -5,4 +5,6 @@ class GetStorageHelpers {
   static void addKeyToLocalStorage(String key, dynamic value) {
     GetStorage().write(key, value);
   }
+
+  
 }

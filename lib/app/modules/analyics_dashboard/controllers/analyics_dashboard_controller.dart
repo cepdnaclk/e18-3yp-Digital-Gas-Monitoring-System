@@ -1,10 +1,24 @@
+import 'package:bluetoothapp/app/data/models/gas_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AnalyicsDashboardController extends GetxController with GetSingleTickerProviderStateMixin{
 
 
-
+final months = [
+      "jan",
+      "feb",
+      "mar",
+      "apr",
+      "may",
+      "jun",
+      "jul",
+      "aug",
+      "sep",
+      "oct",
+      "nov",
+      "dec",
+    ];
 
   late TabController tabController;
   final data1= [
@@ -32,6 +46,8 @@ final data2= [
   void onInit() {
     super.onInit();
     tabController = TabController(length: 2, vsync: this);
+    print("...........Analysis of of active gas => ${Gases.activeGas}.................");
+    print(Gases.activeGas!.monthStats!.jan);
     
   }
 

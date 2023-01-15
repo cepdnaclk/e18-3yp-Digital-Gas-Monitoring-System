@@ -1,7 +1,6 @@
 import 'package:bluetoothapp/app/data/models/gas_model.dart';
 import 'package:bluetoothapp/app/data/services/firebase_service.dart';
 import 'package:bluetoothapp/app/routes/app_pages.dart';
-import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
@@ -13,54 +12,38 @@ enum AvaiablityStatus{
 
 
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
-  final String label;
-
-  HomeController({required this.label});
-  double _gasLevel = 0;
-  double _leakageLevel = 0;
-  Color color1 = Colors.red;
-  Color color2 = Colors.green;
-
-
-
-  var selectedOption = "Gas 1".obs;
-  List<String> options = ["Gas 1", "Gas 2", "Gas 3"];
-
-  List<Gas> gasList = Gases.gasList;
-  RxString selectedGasTitle = Gases.activeGas!.macAddress.obs;
-  onChange(String newValue) {
-        selectedGasTitle.value = newValue;
-    }
-
-  String image1 = "gas_level.jpg";
-  String image2 = "gas_leakage.jpg";
-
-
-
-  void onTap1() {
-    print(".......Gas Level Tapped.......");
-    Get.toNamed(Routes.ANALYICS_DASHBOARD);
-  }
-
-  void onTap2() {
-    print(".......Gas Leakage Level Tapped.......");
-
-  }
-
-
-
-  var avaiablityStatus = AvaiablityStatus.low.obs;
   
 
-  final count = 0.obs;
+  Future<Gas>? gas;
+  
+
+
+  var macAddresses = Gases.macAddresses.obs;
+  RxString activeGas = Gases.macAddresses[0].obs;
+  onChange(String newValue) {
+        activeGas.value = newValue;
+        gas = FirebaseServices.readGas(newValue).then((value) {
+          Gases.activeGas = value;
+          return value;
+        });
+        
+        update();
+        
+    }
+
+
   @override
-  void onInit() {
+  void onInit() async{
     super.onInit();
-    FirebaseFunctions functions = FirebaseFunctions.instance;
-    
+     gas = FirebaseServices.readGas(macAddresses[0]).then((value) {
+          Gases.activeGas = value;
+          print(Gases.activeGas);
+          return value;
+        });
+   
   }
 
+ 
   @override
   void onReady() {
     super.onReady();
@@ -71,44 +54,7 @@ class HomeController extends GetxController {
     super.onClose();
   }
 
-  Future<String> readGasLevel() async{
-     print(".......Read Gas Level value.......");
-      await FirebaseServices.readGasLevel();
-      print(".......Calling Getter Method.......");
-      _gasLevel = Gases.activeGas!.gasLevel;
-      print(".......Gas Level value is ${_gasLevel}.......");
-      // if(_gasLevel>60){
-      //   avaiablityStatus.value = AvaiablityStatus.high;  
-      //   color1 = Colors.green;
-
-      // }else if(_gasLevel>20){
-      //   avaiablityStatus.value = AvaiablityStatus.average;  
-      //   color1= Color(Colors.yellow[400]!.value);
-      // }
-
-      return _gasLevel.toString();
-      
-  }
-
-
-   Future<String> readLeakageLevel() async{
-     print(".......Read Leakage Level value.......");
-      await FirebaseServices.readLeakageLevel();
-      _leakageLevel = Gases.activeGas!.leakageLevel;
-      print(".......Leakage level value is ${  _leakageLevel}.......");
-      //  if(_leakageLevel>60){
-      //   avaiablityStatus.value = AvaiablityStatus.high;  
-      //   color2 = Colors.red;
-
-      // }else if(_leakageLevel>20){
-      //   avaiablityStatus.value = AvaiablityStatus.average;  
-      //   color2= Color(Colors.yellow[400]!.value);
-      // }
-     
-
-      return  _leakageLevel.toString();
-      
-  }
+  
 
   
 }

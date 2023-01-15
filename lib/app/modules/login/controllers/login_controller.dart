@@ -115,7 +115,7 @@ class LoginController extends GetxController {
                         )
                       ],
                       crossAlignment: CrossAxisAlignment.center,
-                    ),
+                    ).px8(),
                   ),
                 ));
           }else{
@@ -135,7 +135,8 @@ class LoginController extends GetxController {
 
   Future<void> routingBasedOnGases() async {
     await FirebaseServices.initializeUser();       //to add all gases under the users account
-    if (Gases.gasList.isEmpty) {
+    print("......................Moving from Login to Home...............");
+    if (Gases.macAddresses.isEmpty) {
       Get.dialog(
           CustomDialog(
             circleAvatar: CircleAvatar(
@@ -157,7 +158,6 @@ class LoginController extends GetxController {
           barrierColor: Colors.transparent,
           barrierDismissible: false);
     } else {
-      print(Gases.gasList);
       Get.back(closeOverlays: true);
       Get.offAllNamed(Routes.HOME);
     }

@@ -9,7 +9,7 @@ import 'package:velocity_x/velocity_x.dart';
 
 class EditGasController extends GetxController {
   //TODO: Implement EditGasController
-  final gasList = RxList<Gas>(Gases.gasList);
+  final gasList = RxList<String>(Gases.macAddresses);
   
   final count = 0.obs;
   @override
@@ -39,8 +39,8 @@ class EditGasController extends GetxController {
   }
 
   void removeGas(int index)async{
-   await FirebaseServices.removeGasFromUser(Gases.gasList[index].macAddress).then((value) {
-Gases.gasList.removeAt(index);
+   await FirebaseServices.removeGasFromUser(gasList[index]).then((value) {
+Gases.macAddresses.removeAt(index);
 gasList.removeAt(index);
    
     });
