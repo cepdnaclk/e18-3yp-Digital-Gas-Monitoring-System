@@ -46,10 +46,10 @@ HX711 scale;
 
 
 /* 2. Define the API Key */
-#define API_KEY "AIzaSyAZ4jx6lIlrbBP629e8VSQQ2tsAVgqn2c4"
+#define API_KEY "XXXXXXXXX"
 
 /* 3. Define the project ID */
-#define FIREBASE_PROJECT_ID "esp32-firebase-demo-6041f"
+#define FIREBASE_PROJECT_ID "XXXXXXX"
 
 
 
